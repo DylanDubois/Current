@@ -1,1 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Lobster");
+
+$primary-light: #00A4DB;	// Main Primary color */
+$primary: #1FC5FB;
+$primary-dark: #05C1FF;
+$dark: #00749B;
+$prima: #005B7A;  
+
+$main-font: Lobster;
+
+body {
+    margin: 0;
+}
+
+header {
+    background: $primary-dark;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    font-size: 2em;
+}
+
+.nav-bar {
+    text-align: center;
+    font-size: 1em;
+    ul {
+        list-style: none;
+        display: inline;
+        li {
+            display: inline;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 1.5em;
+            padding: 20px;
+        }
+        a:hover {
+            color: $primary-light;
+        }
+    }
+}

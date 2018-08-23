@@ -1,0 +1,15 @@
+@import '../..//../styles.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: $main-font;
+}
+.grid {
+    background: $primary-dark;
+}
+
+.map-container {
+    padding-top: 1em;
+}
