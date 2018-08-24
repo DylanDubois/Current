@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css?family=Lobster");
 
-$primary-light: #00A4DB;	// Main Primary color */
+$primary-dark: #00A4DB;	// Main Primary color */
 $primary: #1FC5FB;
-$primary-dark: #05C1FF;
+$primary-light: #05C1FF;
 $dark: #00749B;
 $prima: #005B7A;  
 
@@ -14,7 +14,7 @@ body {
 }
 
 header {
-    background: $primary-dark;
+    background: $primary-light;
     text-align: center;
     justify-content: center;
     align-content: center;
@@ -37,7 +37,75 @@ header {
             padding: 20px;
         }
         a:hover {
-            color: $primary-light;
+            color: $primary-dark;
         }
+    }
+}
+
+.footer {
+    text-align: center;
+    padding: 1.5em;
+}
+
+@media only screen and (min-width: 700px) {
+    .grid {
+        display: grid;
+        grid-auto-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: .8em;
+    }
+
+    .header {
+        display: grid;
+        grid-column: 1/5;
+        padding-top: 1em;
+        font-size: 3em;
+    }
+    .nav-bar {
+        display: grid;
+        grid-column: 1/5;
+        ul {
+            list-style: none;
+            display: block;
+            text-align: center;
+            li {
+                display: inline;
+            }
+    
+            a {
+                text-decoration: none;
+                font-size: 1.5em;
+                padding: 20px;
+            }
+            a:hover {
+                color: $primary-dark;
+            }
+        }
+    }
+
+    .map-container {
+        display: grid;
+        grid-column: 1/4;
+        margin-left: 1em;
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+    }
+
+    .list-container {
+        margin: 0;
+        display: grid;
+        grid-column: 4/5;
+        height: 500px;
+        margin-right: 1em;
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+
+        agm-map {
+            width: 100%;
+        }
+    }
+
+    .footer {
+        display: grid;
+        grid-column: 1/5;
+        text-align: center;
+        padding: 1.5em;
     }
 }

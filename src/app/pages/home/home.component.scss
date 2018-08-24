@@ -7,9 +7,14 @@
     font-family: $main-font;
 }
 .grid {
-    background: $primary-dark;
+    background: $primary-light;
 }
 
 .map-container {
-    padding-top: 1em;
+    margin-bottom: 1em;
+}
+
+.list-container {
+    background: white; 
+    height: 500px;
 }
