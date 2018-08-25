@@ -23,11 +23,11 @@
   </nav>
 
   <section class="map-container">
-    <app-map></app-map>
+    <app-map [markers]="allEvents"></app-map>
   </section>
 
   <section class="list-container">
-    <app-events-list>
+    <app-events-list [events]="allEvents">
     </app-events-list>
   </section>
 

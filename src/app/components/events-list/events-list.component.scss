@@ -8,11 +8,32 @@
     text-align: center;
     align-content: center;
     justify-content: center;
-    background: $primary-dark;
+    background: $primary-light;
     box-shadow: 0 3px 15px rgba(0,0,0,0.4);
 
     h1 {
         font-size: 2em;
         padding: .5em;
+    }
+}
+
+.events-list {
+    overflow: scroll;
+    max-height: 430px;
+
+    .list-item {
+        padding: .5em 1em;
+        border-bottom: 2px solid $primary;
+        h2 {
+            color: $primary;
+        }
+    }
+
+    .list-item:hover {
+        background: $primary-dark;
+        h2 {
+            color: white;
+            overflow: hidden;
+        }
     }
 }
