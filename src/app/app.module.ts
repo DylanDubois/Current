@@ -10,6 +10,7 @@ import { EventsListComponent } from './components/events-list/events-list.compon
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 export const firebaseConfig = {
   production: true,
@@ -29,7 +30,8 @@ export const firebaseConfig = {
     AppComponent,
     HomeComponent,
     MapComponent,
-    EventsListComponent
+    EventsListComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
