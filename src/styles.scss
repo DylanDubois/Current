@@ -15,11 +15,16 @@ body {
 }
 
 header {
-    background: $primary-light;
+    background: url("https://images.pexels.com/photos/325521/pexels-photo-325521.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-repeat: no-repeat;
+    background-position: 25% 90%;
+    background-attachment: fixed;
+    background-size: cover;
     text-align: center;
     justify-content: center;
     align-content: center;
     font-size: 2em;
+    padding: 2em 0;
 }
 
 .map-container, .list-container {
@@ -78,8 +83,8 @@ header {
     .header {
         display: grid;
         grid-column: 1/5;
-        padding-top: 1em;
         font-size: 3em;
+        background-position: 25% 300%;
     }
     .nav-bar {
         display: grid;
