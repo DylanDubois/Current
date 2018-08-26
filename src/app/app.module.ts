@@ -12,6 +12,10 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
+import { RouterModule, Routes } from '@angular/router';
+import { EventsComponent } from './pages/events/events.component';
+import { ContactComponent } from './pages/contact/contact.component';
+
 export const firebaseConfig = {
   production: true,
   firebase: {
@@ -24,6 +28,12 @@ export const firebaseConfig = {
   }
 };
 
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'events',      component: EventsComponent },
+  { path: 'contact',      component: ContactComponent },
+];
+
 
 @NgModule({
   declarations: [
@@ -31,7 +41,9 @@ export const firebaseConfig = {
     HomeComponent,
     MapComponent,
     EventsListComponent,
-    NavBarComponent
+    NavBarComponent,
+    EventsComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +53,9 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    RouterModule.forRoot(
+      appRoutes
+    ),
   ],
   providers: [],
   bootstrap: [AppComponent]
