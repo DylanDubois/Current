@@ -17,7 +17,7 @@ body {
 header {
     background: url("https://images.pexels.com/photos/325521/pexels-photo-325521.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
     background-repeat: no-repeat;
-    background-position: 25% 90%;
+    background-position: left -415px;
     background-attachment: fixed;
     background-size: cover;
     text-align: center;
@@ -29,7 +29,6 @@ header {
 
 .map-container, .list-container {
     margin-top: 1em;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
 }
 
 
@@ -38,7 +37,6 @@ header {
     background: $primary-light;
     margin-top: -1em;
     padding: .7em;
-    box-shadow: 0px 15px 15px rgba(0,0,0,0.4);
     ul {
         list-style: none;
         display: inline;
@@ -90,6 +88,7 @@ header {
         display: grid;
         grid-column: 1/5;
         margin-bottom: 1em;
+        box-shadow: 0px 15px 15px rgba(0,0,0,0.4);
         ul {
             list-style: none;
             display: block;
