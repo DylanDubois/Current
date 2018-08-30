@@ -25,13 +25,13 @@
     </div>
   </nav>
 
-  <section class="map-container">
-    <app-map [markers]="allEvents"></app-map>
-  </section>
-
   <section class="list-container">
     <app-events-list [events]="allEvents" header="Popular Events">
     </app-events-list>
+  </section>
+  
+  <section class="map-container">
+    <app-map [markers]="allEvents"></app-map>
   </section>
 
   <div class="footer">
