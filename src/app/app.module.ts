@@ -16,6 +16,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EventsComponent } from './pages/events/events.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { DiscoverComponent } from './pages/discover/discover.component';
+import { ModalSigninComponent } from './components/modal-signin/modal-signin.component';
 
 export const firebaseConfig = {
   production: true,
@@ -46,7 +47,8 @@ const appRoutes: Routes = [
     NavBarComponent,
     EventsComponent,
     ContactComponent,
-    DiscoverComponent
+    DiscoverComponent,
+    ModalSigninComponent
   ],
   imports: [
     BrowserModule,

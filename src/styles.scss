@@ -70,6 +70,22 @@ header {
     }
 }
 
+app-modal-signin{
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    position: absolute;
+    top: 0; bottom: 0;
+    height: 220%;
+    .modal-body{
+        height: 400px;
+        width: 500px;
+        top: 20%;
+        position: absolute;
+        background: $primary-dark;
+    }
+
+}
+
 @media only screen and (min-width: 700px) {
     .grid {
         display: grid;
@@ -152,5 +168,17 @@ header {
         grid-column: 1/5;
         text-align: center;
         padding: 1.5em;
+    }
+
+    app-modal-signin{
+        height: 130%;
+    
+        .modal-body{
+            height: 400px;
+            width: 500px;
+            top: 25%;
+            left: 32.5%;
+        }
+    
     }
 }

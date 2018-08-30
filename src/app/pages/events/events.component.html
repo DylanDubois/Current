@@ -19,7 +19,7 @@
       <div class="signin-nav">
         <ul>
           <li>
-            <a routerLink="">Sign-In</a>
+            <a (click)="displaySignin = !dipsplaySignin">Sign-In</a>
           </li>
         </ul>
       </div>
@@ -38,6 +38,9 @@
       <h5>Made by <a href="https://www.linkedin.com/in/dylan-dubois/">Dylan Dubois</a></h5>
       <h5>Current &copy; 2018</h5>
     </div>
+
+    <app-modal-signin *ngIf="displaySignin" (close)="onClose($event)">  
+      </app-modal-signin>
   
   
   </div>

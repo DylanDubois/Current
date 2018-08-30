@@ -10,6 +10,8 @@ export class EventsComponent implements OnInit {
 
   allEvents : any;
 
+  displaySignin: boolean = false;
+
   constructor(private fbd : FirebaseService) { 
     this.fbd.getEvents().valueChanges().subscribe(data => {
       this.allEvents = data;
@@ -19,6 +21,10 @@ export class EventsComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  onClose(message:boolean):void {
+    this.displaySignin = false;
   }
 
 }
