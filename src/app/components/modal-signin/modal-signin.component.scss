@@ -8,10 +8,19 @@
 }
 
 .modal-header {
+    background: $primary-light;
+    text-align: center;
+    padding: .5em;
+
     h1 {
-        background: $primary-light;
-        text-align: center;
-        padding: .5em;
+        display: inline;
+        padding-left: 28px;
+    }
+
+    a {
+        padding: 8px;
+        float: right;
+        cursor: pointer;
     }
 }
 
