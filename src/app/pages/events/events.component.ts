@@ -1,3 +1,4 @@
+import { FirebaseService } from './../../providers/firebase.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventsComponent implements OnInit {
 
-  constructor() { }
+  allEvents : any;
+
+  constructor(private fbd : FirebaseService) { 
+    this.fbd.getEvents().valueChanges().subscribe(data => {
+      this.allEvents = data;
+    });
+
+    console.log("events entered");
+  }
 
   ngOnInit() {
   }
