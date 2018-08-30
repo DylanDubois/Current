@@ -7,6 +7,14 @@
     font-family: $main-font;
 }
 
+.header {
+    background: url("https://images.pexels.com/photos/325521/pexels-photo-325521.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-repeat: no-repeat;
+    background-position: 25% -415px;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 .map-container {
     margin-bottom: 1em;
 }
@@ -14,4 +22,11 @@
 .list-container {
     background: white; 
     height: 500px;
+}
+
+@media only screen and (min-width: 700px) {
+    .header {
+        background-position: 25% 300%;
+    }
+
 }

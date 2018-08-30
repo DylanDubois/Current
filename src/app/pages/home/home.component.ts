@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
        this.allEvents = data;
      });
 
+     console.log("home entered");
    }
 
   ngOnInit() {

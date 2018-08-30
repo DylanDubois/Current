@@ -10,6 +10,8 @@ export class EventsListComponent implements OnInit {
 
   @Input() events;
 
+  @Input() header: string;
+
   constructor(private fbd : FirebaseService) { 
 
   }
@@ -19,10 +21,6 @@ export class EventsListComponent implements OnInit {
 
   addEvent(){
 
-  }
-
-  logevents() {
-    console.log(this.events);
   }
 
 }
