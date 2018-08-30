@@ -15,6 +15,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { RouterModule, Routes } from '@angular/router';
 import { EventsComponent } from './pages/events/events.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { DiscoverComponent } from './pages/discover/discover.component';
 
 export const firebaseConfig = {
   production: true,
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'events',      component: EventsComponent },
   { path: 'contact',      component: ContactComponent },
+  { path: 'discover',      component: DiscoverComponent },
 ];
 
 
@@ -43,7 +45,8 @@ const appRoutes: Routes = [
     EventsListComponent,
     NavBarComponent,
     EventsComponent,
-    ContactComponent
+    ContactComponent,
+    DiscoverComponent
   ],
   imports: [
     BrowserModule,
