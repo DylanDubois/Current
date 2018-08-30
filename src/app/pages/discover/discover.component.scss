@@ -10,14 +10,12 @@
 .header {
     background: url("https://images.pexels.com/photos/433452/pexels-photo-433452.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
     background-repeat: no-repeat;
-    background-position: 25% -415px;
-    background-attachment: fixed;
     background-size: cover;
 }
 
 @media only screen and (min-width: 700px) {
     .header {
-        background-position: 25% 400%;
+        background-position: 25% 80%;
     }
 
 }
