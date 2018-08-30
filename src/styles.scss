@@ -49,20 +49,10 @@ header {
             padding: 0 20px;
             font-size: 2em;
         }
-        a:hover {
-            background: white;
-            color: $primary-light;
-        }
     }
 
     .signin-nav {
         margin: 10px;
-        ul {
-            a:hover {
-                background: white;
-                color: $primary-light;
-            }
-        }
     }
 }
 
@@ -112,6 +102,7 @@ header {
             a:hover {
                 color: $primary-light;
                 cursor: pointer;
+                background: white;
             }
         }
 
@@ -122,6 +113,11 @@ header {
 
             ul {
                 float: right;
+
+                a:hover {
+                    background: white;
+                    color: $primary-light;
+                }
             }
         }
 
@@ -136,18 +132,14 @@ header {
 
     .map-container {
         display: grid;
-        grid-column: 1/4;
         margin-top: 0;
-        margin-left: 1em;
         box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
     }
 
     .list-container {
         margin: 0;
         display: grid;
-        grid-column: 4/5;
         height: 500px;
-        margin-right: 1em;
         box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
 
         agm-map {
