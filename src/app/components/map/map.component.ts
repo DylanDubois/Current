@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-map',
@@ -9,6 +9,8 @@ export class MapComponent implements OnInit {
 
   @Input() markers;
 
+  //@Output() chosenLocation: EventEmitter<any> = new EventEmitter<any>();
+
   constructor() { }
 
   lat: number;
@@ -17,6 +19,10 @@ export class MapComponent implements OnInit {
   ngOnInit() {
     this.lat = 30.4515;
     this.lng = -91.1871;
+  }
+
+  mapClicked(event) {
+    //this.chosenLocation.emit(event);
   }
 
 }
