@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DiscoverComponent implements OnInit {
 
+  displaySignin: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  onClose(message:boolean):void {
+    this.displaySignin = false;
+  }
 }

@@ -28,4 +28,8 @@ export class HomeComponent implements OnInit {
     this.displaySignin = false;
   }
 
+  // chosenLocation(event): void {
+  //   console.log(event);
+  // }
+
 }
