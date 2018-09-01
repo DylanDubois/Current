@@ -19,7 +19,6 @@ export class ModalSigninComponent implements OnInit {
   }
 
   onClose() {
-    console.log(this.auth.currentUser());
     this.close.emit(false);
   }
 

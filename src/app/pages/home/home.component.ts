@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   displaySignin: boolean = false;
 
-  authenticated: boolean = false;
+  authState;
 
   user;
 
@@ -24,8 +24,19 @@ export class HomeComponent implements OnInit {
     this.fbd.getEvents().valueChanges().subscribe(data => {
       this.allEvents = data;
     });
-    this.user = this.auth.currentUser();
-    this.authenticated = this.auth.authenticated();
+    this.authState = this.auth.getAuthState().subscribe((auth) =>{
+      if (auth)
+        this.user = auth;
+    });
+  }
+
+  userLogout() {
+    this.user = null;
+    this.auth.logout();
+  }
+
+  ngOnDestroy() {
+    this.authState.unsubscribe();
   }
 
   onClose(message:boolean):void {

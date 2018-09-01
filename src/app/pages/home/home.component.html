@@ -19,9 +19,9 @@
     <div class="signin-nav">
       <ul>
         <li>
-          <a *ngIf="!authenticated; else logout" (click)="displaySignin = !displaySignin">Sign-In</a>
+          <a *ngIf="!user; else logout" (click)="displaySignin = !displaySignin">Sign-In</a>
           <ng-template #logout>
-            <a (click)="auth.logout()">Logout</a>
+            <a (click)="userLogout()">Logout</a>
           </ng-template>
         </li>
       </ul>

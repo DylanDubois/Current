@@ -28,10 +28,12 @@
 .google-signin {
     padding: 1em 3em;
     background: red;
+    cursor: pointer;
     display: block;
     text-align: center;
     margin: 1em;
     font-size: 1.5em;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
 }
 
 @media only screen and (min-width: 700px) {

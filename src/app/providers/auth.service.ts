@@ -9,30 +9,15 @@ import * as firebase from 'firebase/app';
 })
 export class AuthService {
 
-  authState: any;
-  user: any;
 
   constructor(private af: AngularFireAuth,
     private db: AngularFireDatabase,
     private router: Router) {
 
-    af.authState.subscribe((auth) => {
-      this.authState = auth;
-      this.user = this.authState;
-    });
   }
 
-  authenticated(): boolean {
-    return this.authState !== null;
-  }
-
-  currentUser(): any {
-    return this.authenticated ? this.authState : null;
-  }
-
-  // Returns current user UID
-  currentUserId(): string {
-    return this.authenticated ? this.authState.uid : '';
+  getAuthState() {
+    return this.af.authState;
   }
 
   loginEmail(email: string, password: string) {
