@@ -1,3 +1,4 @@
+import { AuthService } from './providers/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -62,7 +63,7 @@ const appRoutes: Routes = [
       appRoutes
     ),
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
