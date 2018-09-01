@@ -1,3 +1,4 @@
+import { AuthService } from './../../providers/auth.service';
 import { FirebaseService } from './../../providers/firebase.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -12,16 +13,19 @@ export class HomeComponent implements OnInit {
 
   displaySignin: boolean = false;
 
-  constructor(private fbd : FirebaseService) {
-     this.fbd.getEvents().valueChanges().subscribe(data => {
-       this.allEvents = data;
-     });
+  authenticated: boolean = false;
 
-     console.log("home entered");
+  user;
+
+  constructor(private fbd : FirebaseService, private auth : AuthService) {
    }
 
   ngOnInit() {
-    
+    this.fbd.getEvents().valueChanges().subscribe(data => {
+      this.allEvents = data;
+    });
+    this.user = this.auth.currentUser();
+    this.authenticated = this.auth.authenticated();
   }
 
   onClose(message:boolean):void {

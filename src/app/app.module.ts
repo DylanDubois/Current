@@ -62,7 +62,6 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes
     ),
-    AuthService
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

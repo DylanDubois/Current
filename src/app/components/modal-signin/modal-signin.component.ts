@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { AuthService } from '../../providers/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal-signin',
@@ -8,15 +10,23 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 export class ModalSigninComponent implements OnInit {
 
   @Input() displaySignin: boolean;
+  @Input() path: string;
   @Output() close: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor(public auth : AuthService, private router : Router) { }
 
   ngOnInit() {
   }
 
   onClose() {
+    console.log(this.auth.currentUser());
     this.close.emit(false);
+  }
+
+  signInWithGoogle(){
+    this.auth.signInWithGoogle().then((data) => {
+      this.onClose();
+    });
   }
 
 }
