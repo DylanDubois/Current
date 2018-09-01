@@ -27,12 +27,12 @@ export class AuthService {
   signInWithGoogle() {
     return this.af.auth.signInWithPopup(
       new firebase.auth.GoogleAuthProvider()
-    )
+    ).catch((err) => console.log(err))
   }
 
-  logout() {
+  logout(path) {
     this.af.auth.signOut()
-    .then((res) => this.router.navigate(['/']));
+    .then((res) => this.router.navigate([path]));
   }
 }
 

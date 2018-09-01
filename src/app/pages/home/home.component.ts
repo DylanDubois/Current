@@ -27,15 +27,17 @@ export class HomeComponent implements OnInit {
     this.authState = this.auth.getAuthState().subscribe((auth) =>{
       if (auth)
         this.user = auth;
+      console.log(this.user);
     });
   }
 
   userLogout() {
     this.user = null;
-    this.auth.logout();
+    this.auth.logout('');
   }
 
   ngOnDestroy() {
+    console.log("home destroyed gg rekt");
     this.authState.unsubscribe();
   }
 
@@ -47,4 +49,16 @@ export class HomeComponent implements OnInit {
   //   console.log(event);
   // }
 
+}
+
+export interface Event{
+  name: string,
+  start: string,
+  end: string,
+  lat: number,
+  lng: number,
+  description: string,
+  likes: number,
+  publisher: any,
+  comments: any[]
 }

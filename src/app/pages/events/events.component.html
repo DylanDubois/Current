@@ -3,27 +3,30 @@
       <h1>Events</h1>
     </header>
     <nav class="nav-bar">
-      <div class="page-routes">
-        <ul>
-          <li>
-            <a routerLink="" >Home</a>
-          </li>
-          <li>
-            <a routerLink="/events">Events</a>
-          </li>
-          <li>
-            <a routerLink="/discover">Discover</a>
-          </li>
-        </ul>
-      </div>
-      <div class="signin-nav">
-        <ul>
-          <li>
-            <a (click)="displaySignin = !displaySignin">Sign-In</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+        <div class="page-routes">
+          <ul>
+            <li>
+              <a routerLink="" >Home</a>
+            </li>
+            <li>
+              <a routerLink="/events">Events</a>
+            </li>
+            <li>
+              <a routerLink="/discover">Discover</a>
+            </li>
+          </ul>
+        </div>
+        <div class="signin-nav">
+          <ul>
+            <li>
+              <a *ngIf="!user; else logout" (click)="displaySignin = !displaySignin">Sign-In</a>
+              <ng-template #logout>
+                <a (click)="userLogout()">Logout</a>
+              </ng-template>
+            </li>
+          </ul>
+        </div>
+      </nav>
   
     <section class="map-container">
       <app-map [markers]="allEvents"></app-map>
