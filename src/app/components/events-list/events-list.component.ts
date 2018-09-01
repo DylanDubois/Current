@@ -12,7 +12,11 @@ export class EventsListComponent implements OnInit {
 
   @Input() header: string;
 
-  @Output() selectedEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() selectedEvent: EventEmitter<any> = new EventEmitter<any>();
+
+  event;
+
+  displayEvent = false;
 
   constructor(private fbd : FirebaseService) { 
 
@@ -25,8 +29,14 @@ export class EventsListComponent implements OnInit {
 
   }
 
+  onClose(event) {
+    this.displayEvent = false;
+  }
+
   onEventSelect(event) {
+    this.event = event;
     this.selectedEvent.emit(event);
+    this.displayEvent = true;
   }
 
 }

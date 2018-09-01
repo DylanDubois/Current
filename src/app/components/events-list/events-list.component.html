@@ -7,3 +7,5 @@
   </div>
 </div>
 
+<app-modal-event-details *ngIf="displayEvent" (close)="onClose($event)" [event]="event"></app-modal-event-details>
+

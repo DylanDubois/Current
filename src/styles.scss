@@ -75,7 +75,7 @@ app-modal-signin{
     background: rgba(0,0,0,0.3);
     width: 100%;
     position: absolute;
-    top: 0; bottom: 0;
+    top: 0; left: 0;
     height: 220%;
     .modal-body{
         height: 400px;
@@ -87,6 +87,25 @@ app-modal-signin{
     }
 
 }
+
+app-modal-event-details{
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    height: 220%;
+    z-index: 10;
+    .modal-body{
+        height: 400px;
+        width: 300px;
+        top: 20%;
+        left: 10%;
+        position: absolute;
+        background: $primary-dark;
+    }
+
+}
+
 
 @media only screen and (min-width: 700px) {
     .grid {
@@ -173,6 +192,18 @@ app-modal-signin{
     }
 
     app-modal-signin{
+        height: 130%;
+    
+        .modal-body{
+            height: 400px;
+            width: 500px;
+            top: 25%;
+            left: 32.5%;
+        }
+    
+    }
+
+    app-modal-event-details{
         height: 130%;
     
         .modal-body{

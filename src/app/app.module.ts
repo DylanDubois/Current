@@ -18,6 +18,7 @@ import { EventsComponent } from './pages/events/events.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { DiscoverComponent } from './pages/discover/discover.component';
 import { ModalSigninComponent } from './components/modal-signin/modal-signin.component';
+import { ModalEventDetailsComponent } from './components/modal-event-details/modal-event-details.component';
 
 export const firebaseConfig = {
   production: true,
@@ -49,7 +50,8 @@ const appRoutes: Routes = [
     EventsComponent,
     ContactComponent,
     DiscoverComponent,
-    ModalSigninComponent
+    ModalSigninComponent,
+    ModalEventDetailsComponent
   ],
   imports: [
     BrowserModule,
