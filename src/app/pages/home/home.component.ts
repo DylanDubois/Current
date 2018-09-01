@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
 
   user;
 
-  constructor(private fbd : FirebaseService, private auth : AuthService) {
+  constructor(private fbd : FirebaseService, public auth : AuthService) {
    }
 
   ngOnInit() {
