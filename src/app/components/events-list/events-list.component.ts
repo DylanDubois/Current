@@ -1,5 +1,5 @@
 import { FirebaseService } from './../../providers/firebase.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-events-list',
@@ -12,6 +12,8 @@ export class EventsListComponent implements OnInit {
 
   @Input() header: string;
 
+  @Output() selectedEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   constructor(private fbd : FirebaseService) { 
 
   }
@@ -21,6 +23,10 @@ export class EventsListComponent implements OnInit {
 
   addEvent(){
 
+  }
+
+  onEventSelect(event) {
+    this.selectedEvent.emit(event);
   }
 
 }

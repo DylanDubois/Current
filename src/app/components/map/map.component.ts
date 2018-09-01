@@ -1,20 +1,22 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements OnInit {
+export class MapComponent implements OnInit, OnChanges {
 
   @Input() markers;
+  @Input() selectedEvent;
 
   //@Output() chosenLocation: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
   lat: number;
-  lng: any;
+  lng: number;
+  zoom: number = 8;
 
   ngOnInit() {
     this.lat = 30.4515;
@@ -23,6 +25,15 @@ export class MapComponent implements OnInit {
 
   mapClicked(event) {
     //this.chosenLocation.emit(event);
+  }
+
+  ngOnChanges(changes) {
+    if (changes.selectedEvent && changes.selectedEvent.currentValue){
+      this.lat = changes.selectedEvent.currentValue.lat;
+      this.lng = changes.selectedEvent.currentValue.lng;
+      this.zoom = 11;
+    }
+    
   }
 
 }
