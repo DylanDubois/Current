@@ -12,6 +12,7 @@ export class DiscoverComponent implements OnInit {
   allEvents: any;
 
   displaySignin: boolean = false;
+  displayDropdown: boolean = false;
 
   authState;
 
@@ -39,5 +40,6 @@ export class DiscoverComponent implements OnInit {
 
   onClose(message:boolean):void {
     this.displaySignin = false;
+    this.displayDropdown = false;
   }
 }
