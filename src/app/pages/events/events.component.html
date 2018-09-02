@@ -24,9 +24,9 @@
         </ul>
         <ng-template #logout>
             <div class="profile-dropdown">
-              <div class="dropdown-header">
+              <div class="dropdown-header" (click)="displayDropdown = !displayDropdown">
                 <img [src]="user.photoURL"/>
-                <a (click)="displayDropdown = !displayDropdown">{{ user.displayName }}</a>
+                <a>{{ user.displayName }}</a>
             </div>
               <ul *ngIf="displayDropdown" class="dropdown-list">
                 <li>Profile</li>
