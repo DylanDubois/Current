@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css?family=Lobster");
-@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Amaranth");
 @import '~material-design-icons/iconfont/material-icons.css';
 
 $primary-dark: #00A4DB;	// Main Primary color */
@@ -10,11 +10,15 @@ $dark: #00749B;
 $prima: #005B7A;  
 
 $main-font: Lobster;
-$secondary-font: Roboto;
+$secondary-font: Amaranth;
 
 body {
     margin: 0;
     background: $primary-dark;
+}
+
+body.modal-open {
+    overflow: hidden;
 }
 
 header {
@@ -94,7 +98,7 @@ app-modal-event-details{
     width: 100%;
     position: absolute;
     top: 0; left: 0;
-    height: 220%;
+    height: 240%;
     z-index: 10;
     .modal-body{
         height: 425px;
