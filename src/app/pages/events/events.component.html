@@ -1,49 +1,51 @@
 <div class="grid">
-    <header class="header">
-      <h1>Events</h1>
-    </header>
-    <nav class="nav-bar">
-        <div class="page-routes">
-          <ul>
-            <li>
-              <a routerLink="" >Home</a>
-            </li>
-            <li>
-              <a routerLink="/events">Events</a>
-            </li>
-            <li>
-              <a routerLink="/discover">Discover</a>
-            </li>
-          </ul>
-        </div>
-        <div class="signin-nav">
-          <ul>
-            <li>
-              <a *ngIf="!user; else logout" (click)="displaySignin = !displaySignin">Sign-In</a>
-              <ng-template #logout>
-                <a (click)="userLogout()">Logout</a>
-              </ng-template>
-            </li>
-          </ul>
-        </div>
-      </nav>
-  
-    <section class="map-container">
-      <app-map [markers]="allEvents"></app-map>
-    </section>
-  
-    <section class="list-container">
-      <app-events-list [events]="allEvents" header="All Events">
-      </app-events-list>
-    </section>
-  
-    <div class="footer">
-      <h5>Made by <a href="https://www.linkedin.com/in/dylan-dubois/">Dylan Dubois</a></h5>
-      <h5>Current &copy; 2018</h5>
+  <header class="header">
+    <h1>Events</h1>
+  </header>
+  <nav class="nav-bar">
+    <div class="page-routes">
+      <ul>
+        <li>
+          <a routerLink="">Home</a>
+        </li>
+        <li>
+          <a routerLink="/events">Events</a>
+        </li>
+        <li>
+          <a routerLink="/discover">Discover</a>
+        </li>
+      </ul>
     </div>
+    <div class="signin-nav">
+      <ul>
+        <li>
+          <a *ngIf="!user; else logout" (click)="displaySignin = !displaySignin">Sign-In</a>
+          <ng-template #logout>
+            <a (click)="userLogout()">Logout</a>
+          </ng-template>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-    <app-modal-signin *ngIf="displaySignin" (close)="onClose($event)">  
-      </app-modal-signin>
-  
-  
+  <section class="map-container">
+    <app-map [markers]="allEvents" [selectedEvent]="selectedEvent"></app-map>
+  </section>
+
+  <section class="list-container">
+    <app-events-list [events]="allEvents" header="Events" (selectedEvent)="eventSelected($event)">
+    </app-events-list>
+  </section>
+
+  <div class="footer">
+    <h5>Made by
+      <a href="https://www.linkedin.com/in/dylan-dubois/">Dylan Dubois</a>
+    </h5>
+    <h5>Current &copy; 2018</h5>
   </div>
+
+  <app-modal-signin *ngIf="displaySignin" (close)="onClose($event)">
+  </app-modal-signin>
+
+
+</div>

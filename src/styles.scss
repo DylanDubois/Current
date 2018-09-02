@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css?family=Lobster");
+@import url("https://fonts.googleapis.com/css?family=Amaranth");
 @import '~material-design-icons/iconfont/material-icons.css';
 
 $primary-dark: #00A4DB;	// Main Primary color */
@@ -9,10 +10,15 @@ $dark: #00749B;
 $prima: #005B7A;  
 
 $main-font: Lobster;
+$secondary-font: Amaranth;
 
 body {
     margin: 0;
     background: $primary-dark;
+}
+
+body.modal-open {
+    overflow: hidden;
 }
 
 header {
@@ -75,18 +81,35 @@ app-modal-signin{
     background: rgba(0,0,0,0.3);
     width: 100%;
     position: absolute;
-    top: 0; bottom: 0;
+    top: 0; left: 0;
     height: 220%;
     .modal-body{
-        height: 400px;
-        width: 300px;
+        height: 500px;
+        width: 100%;
         top: 20%;
-        left: 10%;
         position: absolute;
         background: $primary-dark;
     }
 
 }
+
+app-modal-event-details{
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    height: 240%;
+    z-index: 10;
+    .modal-body{
+        height: 425px;
+        width: 100%;
+        top: 20%;
+        position: absolute;
+        background: $primary-dark;
+    }
+
+}
+
 
 @media only screen and (min-width: 700px) {
     .grid {
@@ -177,6 +200,18 @@ app-modal-signin{
     
         .modal-body{
             height: 400px;
+            width: 500px;
+            top: 25%;
+            left: 32.5%;
+        }
+    
+    }
+
+    app-modal-event-details{
+        height: 130%;
+    
+        .modal-body{
+            height: 425px;
             width: 500px;
             top: 25%;
             left: 32.5%;

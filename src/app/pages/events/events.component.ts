@@ -15,13 +15,17 @@ export class EventsComponent implements OnInit {
 
   authState;
 
+  selectedEvent: any;
+
   user;
+
+  fbObservable: any;
 
   constructor(private fbd : FirebaseService, public auth : AuthService) {
    }
 
   ngOnInit() {
-    this.fbd.getEvents().valueChanges().subscribe(data => {
+    this.fbObservable = this.fbd.getEvents().valueChanges().subscribe(data => {
       this.allEvents = data;
     });
     this.authState = this.auth.getAuthState().subscribe((auth) =>{
@@ -38,10 +42,15 @@ export class EventsComponent implements OnInit {
   ngOnDestroy() {
     console.log("events destroyed gg rekt");
     this.authState.unsubscribe();
+    this.fbObservable.unsubscribe();
   }
 
   onClose(message:boolean):void {
     this.displaySignin = false;
+  }
+
+  eventSelected(event) {
+    this.selectedEvent = event;
   }
 
 }

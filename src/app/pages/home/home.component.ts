@@ -17,18 +17,21 @@ export class HomeComponent implements OnInit {
 
   user;
 
+  selectedEvent: any;
+  fbObservable: any;
+
   constructor(private fbd : FirebaseService, public auth : AuthService) {
    }
 
   ngOnInit() {
-    this.fbd.getEvents().valueChanges().subscribe(data => {
+    this.fbObservable = this.fbd.getEvents().valueChanges().subscribe(data => {
       this.allEvents = data;
     });
     this.authState = this.auth.getAuthState().subscribe((auth) =>{
       if (auth)
         this.user = auth;
-      console.log(this.user);
     });
+
   }
 
   userLogout() {
@@ -39,10 +42,15 @@ export class HomeComponent implements OnInit {
   ngOnDestroy() {
     console.log("home destroyed gg rekt");
     this.authState.unsubscribe();
+    this.fbObservable.unsubscribe();
   }
 
   onClose(message:boolean):void {
     this.displaySignin = false;
+  }
+
+  eventSelected(event) {
+    this.selectedEvent = event;
   }
 
   // chosenLocation(event): void {
@@ -60,5 +68,6 @@ export interface Event{
   description: string,
   likes: number,
   publisher: any,
-  comments: any[]
+  comments: any[],
+  type: string
 }
