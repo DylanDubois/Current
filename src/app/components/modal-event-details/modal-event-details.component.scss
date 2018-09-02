@@ -27,6 +27,9 @@
 
 .event-details {
     padding: 1em;
+    background: $primary-light;
+    margin: 1em;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.4);
     h2 {
         margin: .2em 0;
         font-family: $secondary-font!important;
@@ -37,28 +40,27 @@
         max-height: 100px;
         overflow: scroll;
         padding: .2em;
-        //border: 1px solid white;
+        border: 1px solid white;
         font-size: 1.2em;
     }
+}
 
-    .like-btn{
-        background: $primary-light;
-        padding: .5em 1.5em;
-        margin: 1em;
-        margin-left: 40%;
-        font-size: 1.7em;
-        cursor: pointer;
-        border: none;
-        box-shadow: 0 3px 15px rgba(0,0,0,0.4);
-        
-        i {
-            width: 20px;
-        }
+.like-btn{
+    background: $primary-light;
+    padding: .5em 1.5em;
+    margin-left: 40%;
+    font-size: 1.7em;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.4);
+    
+    i {
+        width: 20px;
     }
+}
 
-    .like-btn:focus {
-        outline: none;
-    }
+.like-btn:focus {
+    outline: none;
 }
 
 @media only screen and (min-width: 700px) {

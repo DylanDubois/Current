@@ -30,8 +30,8 @@ export class HomeComponent implements OnInit {
     this.authState = this.auth.getAuthState().subscribe((auth) =>{
       if (auth)
         this.user = auth;
-      console.log(this.user);
     });
+
   }
 
   userLogout() {

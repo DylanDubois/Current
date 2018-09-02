@@ -20,6 +20,10 @@ export class AuthService {
     return this.af.authState;
   }
 
+  updateDisplayName(name) {
+    
+  }
+
   loginEmail(email: string, password: string) {
 
   }
