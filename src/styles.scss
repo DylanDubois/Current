@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css?family=Lobster");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 @import '~material-design-icons/iconfont/material-icons.css';
 
 $primary-dark: #00A4DB;	// Main Primary color */
@@ -9,6 +10,7 @@ $dark: #00749B;
 $prima: #005B7A;  
 
 $main-font: Lobster;
+$secondary-font: Roboto;
 
 body {
     margin: 0;
@@ -78,10 +80,9 @@ app-modal-signin{
     top: 0; left: 0;
     height: 220%;
     .modal-body{
-        height: 400px;
-        width: 300px;
+        height: 500px;
+        width: 100%;
         top: 20%;
-        left: 10%;
         position: absolute;
         background: $primary-dark;
     }
@@ -96,10 +97,9 @@ app-modal-event-details{
     height: 220%;
     z-index: 10;
     .modal-body{
-        height: 400px;
-        width: 300px;
+        height: 425px;
+        width: 100%;
         top: 20%;
-        left: 10%;
         position: absolute;
         background: $primary-dark;
     }
@@ -207,7 +207,7 @@ app-modal-event-details{
         height: 130%;
     
         .modal-body{
-            height: 400px;
+            height: 425px;
             width: 500px;
             top: 25%;
             left: 32.5%;

@@ -1,8 +1,22 @@
 <div class="event-details-modal">
-    <div class="modal-body">
-      <div class="modal-header">
-          <h1>{{ event.name }}</h1>
-          <a (click)="onClose()"><i class="material-icons">close</i></a>
-      </div>
+  <div class="modal-body">
+    <div class="modal-header">
+      <h1>{{ event.name }}</h1>
+      <a (click)="onClose()">
+        <i class="material-icons">close</i>
+      </a>
+    </div>
+    <div class="event-details">
+      <h2>Start: {{ event.start }}</h2>
+      <h2>End: {{ event.end }}</h2>
+      <h2>Posted By: {{ event.publisher.name }}</h2>
+      <h2>Description:</h2>
+      <p>{{ event.description }}</p>
+      <button class="like-btn">
+        <i class="material-icons">
+          thumb_up_alt
+        </i>
+      </button>
     </div>
   </div>
+</div>
