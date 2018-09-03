@@ -67,6 +67,7 @@ header {
                 position: relative;
                 top: 4px;
                 border: 1px solid white;
+                border-radius: 20px;
             }
 
             a {
@@ -127,7 +128,7 @@ app-modal-event-details{
     height: 240%;
     z-index: 10;
     .modal-body{
-        height: 425px;
+        height: 430px;
         width: 100%;
         top: 20%;
         position: absolute;
