@@ -1,0 +1,53 @@
+@import '../..//../styles.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: $main-font;
+}
+
+.modal-header {
+    background: $primary-light;
+    text-align: center;
+    padding: .5em;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.4);
+    h1 {
+        display: inline;
+        padding-left: 28px;
+    }
+
+    a {
+        margin-top: -4px;
+        padding: 8px;
+        float: right;
+        cursor: pointer;
+    }
+}
+
+    .event-creation-form {
+        background: $primary-light;
+        margin: 1em;
+        label {
+            font-size: 1.5em;
+            margin: 1em;
+        }
+
+        input {
+            font-size: 1em;
+            color: $primary-light;
+            margin: .5em 1.5em;
+        }
+
+        .name-form {
+            input {
+                width: 45%;
+            }
+        }
+    }
+@media only screen and (min-width: 700px) {
+
+    .modal-body {
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+    }
+}

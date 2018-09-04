@@ -1,0 +1,29 @@
+<div class="event-creation-modal">
+  <div class="modal-body">
+    <div class="modal-header">
+      <h1>Post Event</h1>
+      <a (click)="onClose()">
+        <i class="material-icons">close</i>
+      </a>
+    </div>
+    <div class="event-creation-form">
+      <form>
+        <div class="name-form">
+          <label for="name">Event Name</label>
+          <input type="text" required [(ngModel)]="newEvent.name" name="name">
+        </div>
+        <div class="start-end">
+            <label for="name">Start</label>
+            <input type="date" required [(ngModel)]="newEvent.start" name="start">
+            <label for="name">End</label>
+            <input type="date" required [(ngModel)]="newEvent.end" name="end">
+        </div>
+        <div class="form-group">
+          </div>
+
+        <button type="submit" class="btn btn-success">Submit</button>
+
+      </form>
+    </div>
+  </div>
+</div>

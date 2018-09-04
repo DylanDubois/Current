@@ -43,7 +43,7 @@
   </section>
 
   <section class="list-container">
-    <app-events-list [events]="allEvents" header="Events" (selectedEvent)="eventSelected($event)">
+    <app-events-list [events]="allEvents" header="Events" [user]="user" (selectedEvent)="eventSelected($event)">
     </app-events-list>
   </section>
 
