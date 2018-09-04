@@ -60,6 +60,33 @@ header {
 
     .signin-nav {
         margin: 10px;
+
+        .profile-dropdown {
+            img {
+                height: 28px;
+                position: relative;
+                top: 4px;
+                border: 1px solid white;
+                border-radius: 20px;
+            }
+
+            a {
+                text-decoration: none;
+                padding: 0 16px;
+                font-size: 2em;
+            }
+
+            .dropdown-list {
+                z-index: 10;
+                background: $primary-light;
+                li {
+                    display: list-item;
+                    font-size: 1.5em;
+                    padding: .2em 1em;
+                    font-family: $secondary-font;
+                }
+            }
+        }
     }
 }
 
@@ -84,7 +111,7 @@ app-modal-signin{
     top: 0; left: 0;
     height: 220%;
     .modal-body{
-        height: 500px;
+        height: 425px;
         width: 100%;
         top: 20%;
         position: absolute;
@@ -101,7 +128,7 @@ app-modal-event-details{
     height: 240%;
     z-index: 10;
     .modal-body{
-        height: 425px;
+        height: 450px;
         width: 100%;
         top: 20%;
         position: absolute;
@@ -160,6 +187,27 @@ app-modal-event-details{
                     color: $primary-light;
                 }
             }
+
+            .profile-dropdown {
+                float: right;
+                cursor: pointer;
+
+                .dropdown-list {
+                    margin-top: .6em;
+                    position: absolute;
+                    box-shadow: 0px 15px 15px rgba(0,0,0,0.4);
+                    width: 11%;
+                    right: 1.5%;
+                    li {
+                        text-align: right;
+                    }
+                    li:hover {
+                        background: white;
+                        color: $primary-light;
+                    }
+
+                }
+            }
         }
 
         .page-routes {
@@ -211,7 +259,7 @@ app-modal-event-details{
         height: 130%;
     
         .modal-body{
-            height: 425px;
+            height: 450px;
             width: 500px;
             top: 25%;
             left: 32.5%;

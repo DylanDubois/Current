@@ -17,14 +17,24 @@
         </ul>
       </div>
       <div class="signin-nav">
-        <ul>
+        <ul *ngIf="!user; else logout">
           <li>
-            <a *ngIf="!user; else logout" (click)="displaySignin = !displaySignin">Sign-In</a>
-            <ng-template #logout>
-              <a (click)="userLogout()">Logout</a>
-            </ng-template>
+            <a (click)="displaySignin = !displaySignin">Sign-In</a>
           </li>
         </ul>
+        <ng-template #logout>
+            <div class="profile-dropdown">
+              <div class="dropdown-header" (click)="displayDropdown = !displayDropdown">
+                <img [src]="user.photoURL"/>
+                <a>{{ user.displayName }}</a>
+            </div>
+              <ul *ngIf="displayDropdown" class="dropdown-list">
+                <li>Profile</li>
+                <li>Settings</li>
+                <li (click)="userLogout()">Logout</li>
+              </ul>
+            </div>
+        </ng-template>
       </div>
     </nav>
 

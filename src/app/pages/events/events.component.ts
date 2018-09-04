@@ -12,6 +12,7 @@ export class EventsComponent implements OnInit {
   allEvents: any;
 
   displaySignin: boolean = false;
+  displayDropdown: boolean = false;
 
   authState;
 
@@ -47,6 +48,7 @@ export class EventsComponent implements OnInit {
 
   onClose(message:boolean):void {
     this.displaySignin = false;
+    this.displayDropdown = false;
   }
 
   eventSelected(event) {
