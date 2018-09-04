@@ -1,3 +1,4 @@
+import { AuthService } from './providers/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -12,6 +13,13 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
+import { RouterModule, Routes } from '@angular/router';
+import { EventsComponent } from './pages/events/events.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { DiscoverComponent } from './pages/discover/discover.component';
+import { ModalSigninComponent } from './components/modal-signin/modal-signin.component';
+import { ModalEventDetailsComponent } from './components/modal-event-details/modal-event-details.component';
+
 export const firebaseConfig = {
   production: true,
   firebase: {
@@ -24,6 +32,13 @@ export const firebaseConfig = {
   }
 };
 
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'events',      component: EventsComponent },
+  { path: 'contact',      component: ContactComponent },
+  { path: 'discover',      component: DiscoverComponent },
+];
+
 
 @NgModule({
   declarations: [
@@ -31,7 +46,12 @@ export const firebaseConfig = {
     HomeComponent,
     MapComponent,
     EventsListComponent,
-    NavBarComponent
+    NavBarComponent,
+    EventsComponent,
+    ContactComponent,
+    DiscoverComponent,
+    ModalSigninComponent,
+    ModalEventDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,8 +61,11 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    RouterModule.forRoot(
+      appRoutes
+    ),
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

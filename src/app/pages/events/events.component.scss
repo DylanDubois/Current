@@ -8,18 +8,9 @@
 }
 
 .header {
-    background: url("https://images.pexels.com/photos/325521/pexels-photo-325521.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background: url("https://images.pexels.com/photos/1157557/pexels-photo-1157557.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.map-container {
-    margin-bottom: 1em;
-}
-
-.list-container {
-    background: white; 
-    height: 500px;
 }
 
 @media only screen and (min-width: 700px) {
@@ -27,13 +18,13 @@
         background-position: 25% 80%;
     }
 
-    .list-container {
-        grid-column: 1/2;
+    .map-container {
+        grid-column: 1/4;
         margin-left: 1em;
     }
 
-    .map-container {
-        grid-column: 2/5;
+    .list-container {
+        grid: 4/5;
         margin-right: 1em;
     }
 

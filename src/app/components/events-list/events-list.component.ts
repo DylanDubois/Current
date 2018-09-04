@@ -1,5 +1,5 @@
 import { FirebaseService } from './../../providers/firebase.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-events-list',
@@ -7,6 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./events-list.component.scss']
 })
 export class EventsListComponent implements OnInit {
+
+  @Input() events;
+
+  @Input() header: string;
+
+  @Output() selectedEvent: EventEmitter<any> = new EventEmitter<any>();
+
+  event;
+
+  displayEvent = false;
 
   constructor(private fbd : FirebaseService) { 
 
@@ -16,7 +26,17 @@ export class EventsListComponent implements OnInit {
   }
 
   addEvent(){
-    this.fbd.addEvent({location: 'here', time: 'now'});
+
+  }
+
+  onClose(event) {
+    this.displayEvent = false;
+  }
+
+  onEventSelect(event) {
+    this.event = event;
+    this.selectedEvent.emit(event);
+    this.displayEvent = true;
   }
 
 }

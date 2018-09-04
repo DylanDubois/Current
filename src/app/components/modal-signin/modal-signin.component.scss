@@ -1,0 +1,44 @@
+@import '../..//../styles.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: $main-font;
+}
+
+.modal-header {
+    background: $primary-light;
+    text-align: center;
+    padding: .5em;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.4);
+    margin-bottom: 2em;
+    h1 {
+        display: inline;
+        padding-left: 28px;
+    }
+
+    a {
+        padding: 8px;
+        float: right;
+        cursor: pointer;
+    }
+}
+
+.google-signin {
+    padding: 1em 3em;
+    background: red;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    margin: 1em;
+    font-size: 1.5em;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+}
+
+@media only screen and (min-width: 700px) {
+
+    .modal-body {
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+    }
+}

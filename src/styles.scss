@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css?family=Lobster");
+@import url("https://fonts.googleapis.com/css?family=Amaranth");
+@import '~material-design-icons/iconfont/material-icons.css';
 
 $primary-dark: #00A4DB;	// Main Primary color */
 $primary: #1FC5FB;
@@ -8,27 +10,40 @@ $dark: #00749B;
 $prima: #005B7A;  
 
 $main-font: Lobster;
+$secondary-font: Amaranth;
 
 body {
     margin: 0;
+    background: $primary-dark;
+}
+
+body.modal-open {
+    overflow: hidden;
 }
 
 header {
-    background: $primary-light;
     text-align: center;
     justify-content: center;
     align-content: center;
     font-size: 2em;
+    padding: 2em 0;
+}
+
+.list-container {
+    background: white; 
+    height: 500px;
 }
 
 .map-container, .list-container {
     margin-top: 1em;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
 }
 
 
 .nav-bar {
     text-align: center;
+    background: $primary-light;
+    margin-top: -1em;
+    padding: .7em;
     ul {
         list-style: none;
         display: inline;
@@ -41,23 +56,35 @@ header {
             padding: 0 20px;
             font-size: 2em;
         }
-        a:hover {
-            background: white;
-            color: $primary-light;
-        }
     }
 
     .signin-nav {
         margin: 10px;
-        ul {
+
+        .profile-dropdown {
+            img {
+                height: 28px;
+                position: relative;
+                top: 4px;
+                border: 1px solid white;
+                border-radius: 20px;
+            }
 
             a {
-                background: $primary-dark;
-                box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+                text-decoration: none;
+                padding: 0 16px;
+                font-size: 2em;
             }
-            a:hover {
-                background: white;
-                color: $primary-light;
+
+            .dropdown-list {
+                z-index: 10;
+                background: $primary-light;
+                li {
+                    display: list-item;
+                    font-size: 1.5em;
+                    padding: .2em 1em;
+                    font-family: $secondary-font;
+                }
             }
         }
     }
@@ -66,7 +93,50 @@ header {
 .footer {
     text-align: center;
     padding: 1.5em;
+
+    h5 {
+        font-size: 1.15em;
+        font-weight: 100;
+
+        a {
+            text-decoration: none;
+        }
+    }
 }
+
+app-modal-signin{
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    height: 220%;
+    .modal-body{
+        height: 425px;
+        width: 100%;
+        top: 20%;
+        position: absolute;
+        background: $primary-dark;
+    }
+
+}
+
+app-modal-event-details{
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    height: 240%;
+    z-index: 10;
+    .modal-body{
+        height: 450px;
+        width: 100%;
+        top: 20%;
+        position: absolute;
+        background: $primary-dark;
+    }
+
+}
+
 
 @media only screen and (min-width: 700px) {
     .grid {
@@ -78,13 +148,13 @@ header {
     .header {
         display: grid;
         grid-column: 1/5;
-        padding-top: 1em;
         font-size: 3em;
     }
     .nav-bar {
         display: grid;
         grid-column: 1/5;
         margin-bottom: 1em;
+        box-shadow: 0px 15px 15px rgba(0,0,0,0.4);
         ul {
             list-style: none;
             display: block;
@@ -98,7 +168,9 @@ header {
                 padding: 10px 20px;
             }
             a:hover {
-                color: $primary-dark;
+                color: $primary-light;
+                cursor: pointer;
+                background: white;
             }
         }
 
@@ -109,6 +181,32 @@ header {
 
             ul {
                 float: right;
+
+                a:hover {
+                    background: white;
+                    color: $primary-light;
+                }
+            }
+
+            .profile-dropdown {
+                float: right;
+                cursor: pointer;
+
+                .dropdown-list {
+                    margin-top: .6em;
+                    position: absolute;
+                    box-shadow: 0px 15px 15px rgba(0,0,0,0.4);
+                    width: 11%;
+                    right: 1.5%;
+                    li {
+                        text-align: right;
+                    }
+                    li:hover {
+                        background: white;
+                        color: $primary-light;
+                    }
+
+                }
             }
         }
 
@@ -123,18 +221,14 @@ header {
 
     .map-container {
         display: grid;
-        grid-column: 1/4;
         margin-top: 0;
-        margin-left: 1em;
         box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
     }
 
     .list-container {
         margin: 0;
         display: grid;
-        grid-column: 4/5;
         height: 500px;
-        margin-right: 1em;
         box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
 
         agm-map {
@@ -147,5 +241,29 @@ header {
         grid-column: 1/5;
         text-align: center;
         padding: 1.5em;
+    }
+
+    app-modal-signin{
+        height: 130%;
+    
+        .modal-body{
+            height: 400px;
+            width: 500px;
+            top: 25%;
+            left: 32.5%;
+        }
+    
+    }
+
+    app-modal-event-details{
+        height: 130%;
+    
+        .modal-body{
+            height: 450px;
+            width: 500px;
+            top: 25%;
+            left: 32.5%;
+        }
+    
     }
 }

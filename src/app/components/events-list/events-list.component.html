@@ -1,4 +1,11 @@
 <div class="list-header">
-  <h1>Popular Events</h1>
+  <h1>{{header}}</h1>
 </div>
+<div class="events-list">
+  <div class="list-item" *ngFor="let event of events" (click)="onEventSelect(event)">
+      <h2>{{event.name}}</h2>
+  </div>
+</div>
+
+<app-modal-event-details *ngIf="displayEvent" (close)="onClose($event)" [event]="event"></app-modal-event-details>
 

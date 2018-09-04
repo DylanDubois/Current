@@ -1,13 +1,13 @@
-import { AuthService } from './../../providers/auth.service';
 import { FirebaseService } from './../../providers/firebase.service';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../providers/auth.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: 'app-events',
+  templateUrl: './events.component.html',
+  styleUrls: ['./events.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class EventsComponent implements OnInit {
 
   allEvents: any;
 
@@ -16,9 +16,10 @@ export class HomeComponent implements OnInit {
 
   authState;
 
+  selectedEvent: any;
+
   user;
 
-  selectedEvent: any;
   fbObservable: any;
 
   constructor(private fbd : FirebaseService, public auth : AuthService) {
@@ -32,16 +33,15 @@ export class HomeComponent implements OnInit {
       if (auth)
         this.user = auth;
     });
-
   }
 
   userLogout() {
     this.user = null;
-    this.auth.logout('');
+    this.auth.logout('events');
   }
 
   ngOnDestroy() {
-    console.log("home destroyed gg rekt");
+    console.log("events destroyed gg rekt");
     this.authState.unsubscribe();
     this.fbObservable.unsubscribe();
   }
@@ -55,21 +55,4 @@ export class HomeComponent implements OnInit {
     this.selectedEvent = event;
   }
 
-  // chosenLocation(event): void {
-  //   console.log(event);
-  // }
-
-}
-
-export interface Event{
-  name: string,
-  start: string,
-  end: string,
-  lat: number,
-  lng: number,
-  description: string,
-  likes: number,
-  publisher: any,
-  comments: any[],
-  type: string
 }

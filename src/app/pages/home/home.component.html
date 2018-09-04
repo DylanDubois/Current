@@ -6,34 +6,54 @@
     <div class="page-routes">
       <ul>
         <li>
-          <a href="">Home</a>
+          <a routerLink="" >Home</a>
         </li>
         <li>
-          <a href="">Events</a>
+          <a routerLink="/events">Events</a>
+        </li>
+        <li>
+          <a routerLink="/discover">Discover</a>
         </li>
       </ul>
     </div>
     <div class="signin-nav">
-      <ul>
+      <ul *ngIf="!user; else logout">
         <li>
-          <a href="">Sign-In</a>
+          <a (click)="displaySignin = !displaySignin">Sign-In</a>
         </li>
       </ul>
+      <ng-template #logout>
+          <!-- <a (click)="userLogout()">Logout</a> -->
+          <div class="profile-dropdown">
+            <div class="dropdown-header" (click)="displayDropdown = !displayDropdown">
+              <img [src]="user.photoURL"/>
+              <a>{{ user.displayName }}</a>
+          </div>
+            <ul *ngIf="displayDropdown" class="dropdown-list">
+              <li>Profile</li>
+              <li>Settings</li>
+              <li (click)="userLogout()">Logout</li>
+            </ul>
+          </div>
+      </ng-template>
     </div>
   </nav>
 
-  <section class="map-container">
-    <app-map></app-map>
-  </section>
-
   <section class="list-container">
-    <app-events-list>
+    <app-events-list [events]="allEvents" header="Popular Events" (selectedEvent)="eventSelected($event)">
     </app-events-list>
   </section>
 
+  <section class="map-container">
+    <app-map [markers]="allEvents" [selectedEvent]="selectedEvent"></app-map>
+  </section>
+
   <div class="footer">
-    Current &copy; 2018
+    <h5>Made by <a href="https://www.linkedin.com/in/dylan-dubois/">Dylan Dubois</a></h5>
+    <h5>Current &copy; 2018</h5>
   </div>
 
+  <app-modal-signin *ngIf="displaySignin" (close)="onClose($event)">  
+  </app-modal-signin>
 
 </div>
