@@ -84,6 +84,11 @@
             }
         }
 
+        .post-btn:hover{
+            background: white;
+            color: $primary-light;
+        }
+
         .post-btn:focus {
             outline: none;
         }

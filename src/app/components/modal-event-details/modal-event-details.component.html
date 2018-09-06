@@ -7,9 +7,12 @@
       </a>
     </div>
     <div class="event-details">
-      <h2>Start: {{ event.start }}</h2>
-      <h2>End: {{ event.end }}</h2>
-      <h2>Posted By: {{ event.publisher.name }}</h2>
+      <div class="publisher-header">
+        <img [src]="event.publisher.photoURL"/>
+        <h1>{{ event.publisher.name }}</h1>
+      </div>
+      <h2>Posted {{convertStartToString(event.start)}}</h2>
+      <h2>Event Type: {{ event.type }}</h2>
       <h2>Description:</h2>
       <p>{{ event.description }}</p>
     </div>

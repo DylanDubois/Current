@@ -13,15 +13,15 @@ export class ModalEventCreationComponent implements OnInit {
 
   newEvent = {
   name: '',
-  start: '',
+  start: 0,
   end: '',
   lat: '',
   lng: '',
   description: '',
-  likes: '',
-  publisher: '',
+  likes: 1,
+  publisher: {},
   comments: [],
-  type: ''
+  type: 'Academic'
   }
 
   constructor(private fbd : FirebaseService) { }
@@ -32,6 +32,10 @@ export class ModalEventCreationComponent implements OnInit {
 
   postEvent() {
     console.log("posted");
+    this.newEvent.publisher = {name: this.user.displayName, photoURL: this.user.photoURL};
+    this.newEvent.start = Date.now();
+    this.fbd.addEvent(this.newEvent);
+    this.onClose();
   }
 
   mapClicked(event) {
