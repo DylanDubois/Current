@@ -10,7 +10,7 @@ export class MapComponent implements OnInit, OnChanges {
   @Input() markers;
   @Input() selectedEvent;
 
-  //@Output() chosenLocation: EventEmitter<any> = new EventEmitter<any>();
+  @Output() chosenLocation: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
@@ -24,7 +24,7 @@ export class MapComponent implements OnInit, OnChanges {
   }
 
   mapClicked(event) {
-    //this.chosenLocation.emit(event);
+    this.chosenLocation.emit(event);
   }
 
   ngOnChanges(changes) {

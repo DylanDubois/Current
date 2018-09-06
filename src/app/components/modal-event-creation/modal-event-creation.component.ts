@@ -1,3 +1,4 @@
+import { FirebaseService } from './../../providers/firebase.service';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
@@ -11,7 +12,7 @@ export class ModalEventCreationComponent implements OnInit {
   @Input() user;
 
   newEvent = {
-    name: '',
+  name: '',
   start: '',
   end: '',
   lat: '',
@@ -23,17 +24,23 @@ export class ModalEventCreationComponent implements OnInit {
   type: ''
   }
 
-  constructor() { }
+  constructor(private fbd : FirebaseService) { }
 
   ngOnInit() {
     console.log(this.user, this.newEvent);
   }
 
   postEvent() {
+    console.log("posted");
+  }
 
+  mapClicked(event) {
+    this.newEvent.lat = event.coords.lat;
+    this.newEvent.lng = event.coords.lng;
   }
 
   onClose() {
     this.close.emit(false);
+    console.log(this.newEvent);
   }
 }

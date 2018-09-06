@@ -7,6 +7,10 @@
     font-family: $main-font;
 }
 
+.modal-body {
+    overflow: scroll;
+}
+
 .modal-header {
     background: $primary-light;
     text-align: center;
@@ -28,21 +32,60 @@
     .event-creation-form {
         background: $primary-light;
         margin: 1em;
+        padding: 1em;
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
         label {
             font-size: 1.5em;
-            margin: 1em;
+            margin: 1em 0;
         }
 
         input {
             font-size: 1em;
             color: $primary-light;
-            margin: .5em 1.5em;
+            margin: .5em 0;
+            padding: .5em;
         }
 
         .name-form {
             input {
                 width: 45%;
             }
+        }
+
+        .form-group {
+            textarea{
+                color: $primary-light;
+                margin: .5em 0;
+                padding: .5em;
+                width: -webkit-fill-available;
+                font-size: 1em;
+                
+            }
+        }
+
+        agm-map {
+            margin: 1em;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+        }
+
+        .post-btn{
+            background: $primary-light;
+            padding: .5em 1.5em;
+            left: 29%;
+            margin: 1em;
+            position: relative;
+            font-size: 1.7em;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.4);
+            
+            i {
+                width: 20px;
+            }
+        }
+
+        .post-btn:focus {
+            outline: none;
         }
     }
 @media only screen and (min-width: 700px) {
