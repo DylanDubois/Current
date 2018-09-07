@@ -84,7 +84,7 @@ header {
 
             a {
                 text-decoration: none;
-                padding: 0 16px;
+                padding-left: 16px;
                 font-size: 2em;
             }
 
@@ -97,6 +97,11 @@ header {
                     padding: .2em 1em;
                     font-family: $secondary-font;
                 }
+            }
+
+            i {
+                position: relative;
+                top: 2px;
             }
         }
     }
