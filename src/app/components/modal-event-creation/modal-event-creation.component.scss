@@ -65,6 +65,14 @@
             }
         }
 
+        select {
+            background: white;
+            color: $primary-light;
+            font-size: 1em;
+            margin: .5em 0;
+            padding: .5em;
+        }
+
         agm-map {
             margin: 1em;
             box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
@@ -74,10 +82,10 @@
     .post-btn{
         background: $primary-light;
         padding: .5em 1.5em;
-        left: 32%;
-        margin: .25em 1em;
-        margin-bottom: 1em;
-        position: relative;
+        bottom: 2%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        position: absolute;
         font-size: 1.7em;
         cursor: pointer;
         border: none;
@@ -93,9 +101,6 @@
         color: $primary-light;
     }
 
-    .post-btn:focus {
-        outline: none;
-    }
 @media only screen and (min-width: 700px) {
 
     .modal-body {

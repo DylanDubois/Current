@@ -39,7 +39,7 @@
             display: inline;
             margin-left: .5em;
             position: relative;
-            top: -5px;
+            top: -8px;
             font-weight: 100;
         }
     }
@@ -60,14 +60,17 @@
         padding: .2em;
         border: 1px solid white;
         font-size: 1.2em;
+        min-height: 70px;
     }
 }
 
 .like-btn{
     background: $primary-light;
     padding: .5em 1.5em;
-    left: 39.5%;
-    position: relative;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    position: absolute;
     font-size: 1.7em;
     cursor: pointer;
     border: none;
@@ -76,10 +79,6 @@
     i {
         width: 20px;
     }
-}
-
-.like-btn:focus {
-    outline: none;
 }
 
 @media only screen and (min-width: 700px) {

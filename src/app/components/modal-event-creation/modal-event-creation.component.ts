@@ -24,6 +24,8 @@ export class ModalEventCreationComponent implements OnInit {
   type: 'Academic'
   }
 
+  eventTypes = ['Academic', 'Entertainment', 'Social', 'Other'];
+
   constructor(private fbd : FirebaseService) { }
 
   ngOnInit() {
