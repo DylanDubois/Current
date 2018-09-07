@@ -20,7 +20,7 @@ export class ModalEventDetailsComponent implements OnInit {
   convertStartToString(start) {
     let diff = (this.time- start) / 3600000;
 
-    return diff > 1 ? Math.round(diff) + "hour(s) ago" : 'less than an hour ago';
+    return diff > 1 ? Math.round(diff) + " hour(s) ago" : 'less than an hour ago';
   }
 
   onClose() {

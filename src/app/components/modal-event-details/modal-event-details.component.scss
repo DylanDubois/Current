@@ -16,10 +16,11 @@
         display: inline;
         padding-left: 28px;
         font-weight: 100;
+        font-size: 1.75em;
     }
 
     a {
-        margin-top: -4px;
+        margin-top: -2px;
         padding: 8px;
         float: right;
         cursor: pointer;
@@ -65,7 +66,8 @@
 .like-btn{
     background: $primary-light;
     padding: .5em 1.5em;
-    margin-left: 40%;
+    left: 39.5%;
+    position: relative;
     font-size: 1.7em;
     cursor: pointer;
     border: none;

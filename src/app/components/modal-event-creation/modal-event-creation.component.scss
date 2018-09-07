@@ -5,10 +5,7 @@
     padding: 0;
     color: white;
     font-family: $main-font;
-}
-
-.modal-body {
-    overflow: scroll;
+    font-weight: 100;
 }
 
 .modal-header {
@@ -19,10 +16,11 @@
     h1 {
         display: inline;
         padding-left: 28px;
+        font-size: 1.75em;
     }
 
     a {
-        margin-top: -4px;
+        //margin-top: -4px;
         padding: 8px;
         float: right;
         cursor: pointer;
@@ -30,13 +28,16 @@
 }
 
     .event-creation-form {
+        overflow: scroll;
         background: $primary-light;
         margin: 1em;
         padding: 1em;
+        max-height: 450px;
         box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
         label {
             font-size: 1.5em;
             margin: 1em 0;
+            font-family: $secondary-font;
         }
 
         input {
@@ -49,6 +50,7 @@
         .name-form {
             input {
                 width: 45%;
+                font-family: $secondary-font;
             }
         }
 
@@ -59,7 +61,7 @@
                 padding: .5em;
                 width: -webkit-fill-available;
                 font-size: 1em;
-                
+                font-family: $secondary-font;
             }
         }
 
@@ -67,31 +69,32 @@
             margin: 1em;
             box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
         }
+    }
 
-        .post-btn{
-            background: $primary-light;
-            padding: .5em 1.5em;
-            left: 29%;
-            margin: 1em;
-            position: relative;
-            font-size: 1.7em;
-            cursor: pointer;
-            border: none;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.4);
-            
-            i {
-                width: 20px;
-            }
+    .post-btn{
+        background: $primary-light;
+        padding: .5em 1.5em;
+        left: 32%;
+        margin: .25em 1em;
+        margin-bottom: 1em;
+        position: relative;
+        font-size: 1.7em;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.4);
+        
+        i {
+            width: 20px;
         }
+    }
 
-        .post-btn:hover{
-            background: white;
-            color: $primary-light;
-        }
+    .post-btn:hover{
+        background: white;
+        color: $primary-light;
+    }
 
-        .post-btn:focus {
-            outline: none;
-        }
+    .post-btn:focus {
+        outline: none;
     }
 @media only screen and (min-width: 700px) {
 

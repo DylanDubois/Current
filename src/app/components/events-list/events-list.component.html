@@ -1,9 +1,9 @@
 <div class="list-header">
-    <i class="material-icons" style="float:left" (click)="addEvent()">
+    <i *ngIf="header == 'Events'" class="material-icons" style="float:left" (click)="addEvent()">
         add
     </i>
   <h1>{{header}}</h1>
-  <i class="material-icons" style="float: right">
+  <i *ngIf="header == 'Events'" class="material-icons" style="float: right">
       filter_list
   </i>
 </div>

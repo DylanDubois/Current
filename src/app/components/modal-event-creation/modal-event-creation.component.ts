@@ -31,7 +31,7 @@ export class ModalEventCreationComponent implements OnInit {
   }
 
   postEvent() {
-    console.log("posted");
+    if (!this.newEvent.name || !this.newEvent.description || !this.newEvent.lat) return;
     this.newEvent.publisher = {name: this.user.displayName, photoURL: this.user.photoURL};
     this.newEvent.start = Date.now();
     this.fbd.addEvent(this.newEvent);

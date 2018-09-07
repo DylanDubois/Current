@@ -20,7 +20,8 @@
         </div>
       </form>
       <app-map (chosenLocation)="mapClicked($event)" [markers]="[newEvent]"></app-map>
-      <button type="submit" class="post-btn" (click)="postEvent()">Post</button>
     </div>
+
+    <button type="submit" class="post-btn" (click)="postEvent()">Post</button>
   </div>
 </div>
