@@ -1,6 +1,9 @@
 <div class="event-details-modal">
   <div class="modal-body">
     <div class="modal-header">
+      <a *ngIf="userCanDelete" (click)="deleteEvent()" class="delete-btn">
+        <i class="material-icons">delete</i>
+      </a>
       <h1>{{ event.name }}</h1>
       <a (click)="onClose()">
         <i class="material-icons">close</i>
@@ -8,7 +11,7 @@
     </div>
     <div class="event-details">
       <div class="publisher-header">
-        <img [src]="event.publisher.photoURL"/>
+        <img [src]="event.publisher.photoURL" />
         <h1>{{ event.publisher.name }}</h1>
       </div>
       <h2>Posted {{convertStartToString(event.start)}}</h2>
@@ -17,9 +20,9 @@
       <p>{{ event.description }}</p>
     </div>
     <button class="like-btn">
-        <i class="material-icons">
-          thumb_up_alt
-        </i>
-      </button>
+      <i class="material-icons">
+        thumb_up_alt
+      </i>
+    </button>
   </div>
 </div>

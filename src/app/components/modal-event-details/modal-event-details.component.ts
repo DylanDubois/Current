@@ -1,3 +1,4 @@
+import { FirebaseService } from './../../providers/firebase.service';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
@@ -8,13 +9,16 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 export class ModalEventDetailsComponent implements OnInit {
   @Output() close: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input() event: any;
+  @Input() user;
 
+  userCanDelete: boolean = false;
   time;
-  constructor() {
+  constructor(private fbd : FirebaseService) {
     this.time = Date.now();
    }
 
   ngOnInit() {
+    this.userCanDelete = this.user.uid == this.event.publisher.uid;
   }
 
   convertStartToString(start) {
@@ -25,6 +29,11 @@ export class ModalEventDetailsComponent implements OnInit {
 
   onClose() {
     this.close.emit(false);
+  }
+
+  deleteEvent() {
+    this.fbd.deleteEvent(this.event);
+    this.onClose();
   }
 }
 

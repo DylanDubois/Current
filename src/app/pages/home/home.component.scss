@@ -30,11 +30,13 @@
 
     .list-container {
         grid-column: 1/2;
+        margin: 0;
         margin-left: 1em;
     }
 
     .map-container {
         grid-column: 2/5;
+        margin: 0;
         margin-right: 1em;
     }
 

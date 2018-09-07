@@ -13,6 +13,10 @@
     background-size: cover;
 }
 
+.map-container, .list-container {
+    margin: 1em;
+}
+
 @media only screen and (min-width: 700px) {
     .header {
         background-position: 25% 80%;
@@ -20,10 +24,12 @@
 
     .map-container {
         grid-column: 1/4;
+        margin: 0;
         margin-left: 1em;
     }
 
     .list-container {
+        margin: 0;
         grid: 4/5;
         margin-right: 1em;
     }

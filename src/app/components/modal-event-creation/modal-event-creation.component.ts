@@ -1,5 +1,6 @@
 import { FirebaseService } from './../../providers/firebase.service';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { AuthService } from '../../providers/auth.service';
 
 @Component({
   selector: 'app-modal-event-creation',
@@ -26,15 +27,16 @@ export class ModalEventCreationComponent implements OnInit {
 
   eventTypes = ['Academic', 'Entertainment', 'Social', 'Other'];
 
-  constructor(private fbd : FirebaseService) { }
+  userCanDelete: boolean = false;
+
+  constructor(private fbd : FirebaseService, private auth : AuthService) { }
 
   ngOnInit() {
-    console.log(this.user, this.newEvent);
   }
 
   postEvent() {
     if (!this.newEvent.name || !this.newEvent.description || !this.newEvent.lat) return;
-    this.newEvent.publisher = {name: this.user.displayName, photoURL: this.user.photoURL};
+    this.newEvent.publisher = {name: this.user.displayName, photoURL: this.user.photoURL, uid: this.user.uid};
     this.newEvent.start = Date.now();
     this.fbd.addEvent(this.newEvent);
     this.onClose();
@@ -47,6 +49,5 @@ export class ModalEventCreationComponent implements OnInit {
 
   onClose() {
     this.close.emit(false);
-    console.log(this.newEvent);
   }
 }
