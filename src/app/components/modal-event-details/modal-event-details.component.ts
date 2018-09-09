@@ -32,7 +32,7 @@ export class ModalEventDetailsComponent implements OnInit {
   }
 
   deleteEvent() {
-    this.fbd.deleteEvent(this.event);
+    this.fbd.deleteEvent(this.event, this.user.uid);
     this.onClose();
   }
 }
