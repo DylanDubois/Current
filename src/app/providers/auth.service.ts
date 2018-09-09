@@ -20,8 +20,10 @@ export class AuthService {
     return this.af.authState;
   }
 
-  updateDisplayName(name) {
-    
+
+
+  updateDisplayName(name : string) {
+    this.af.auth.currentUser.updateProfile({displayName : name, photoURL: this.af.auth.currentUser.photoURL});
   }
 
   loginEmail(email: string, password: string) {

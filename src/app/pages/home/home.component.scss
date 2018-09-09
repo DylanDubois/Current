@@ -14,12 +14,13 @@
 }
 
 .map-container {
-    margin-bottom: 1em;
+    margin: 1em;
 }
 
 .list-container {
     background: white; 
     height: 500px;
+    margin: 1em;
 }
 
 @media only screen and (min-width: 700px) {
@@ -29,11 +30,13 @@
 
     .list-container {
         grid-column: 1/2;
+        margin: 0;
         margin-left: 1em;
     }
 
     .map-container {
         grid-column: 2/5;
+        margin: 0;
         margin-right: 1em;
     }
 

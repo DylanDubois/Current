@@ -27,6 +27,9 @@
               <div class="dropdown-header" (click)="displayDropdown = !displayDropdown">
                 <img [src]="user.photoURL"/>
                 <a>{{ user.displayName }}</a>
+                <i class="material-icons">
+                    {{displayDropdown ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}}
+                </i>
             </div>
               <ul *ngIf="displayDropdown" class="dropdown-list">
                 <li>Profile</li>
@@ -43,7 +46,7 @@
   </section>
 
   <section class="list-container">
-    <app-events-list [events]="allEvents" header="Events" (selectedEvent)="eventSelected($event)">
+    <app-events-list [events]="allEvents" header="Events" [user]="user" (selectedEvent)="eventSelected($event)">
     </app-events-list>
   </section>
 

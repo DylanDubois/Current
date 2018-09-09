@@ -23,6 +23,14 @@ export class FirebaseService {
     }
 
     addEvent(event) {
-        this.afd.list('/events').push(event);
+        this.afd.object(`/events/${event.start}`).set(event);
+    }
+
+    addUser(user) {
+        this.afd.object(`/users/${user.user.uid}`).set({uid: user.user.uid});
+    }
+
+    deleteEvent(event) {
+        this.afd.object(`/events/${event.start}`).remove();
     }
 }

@@ -1,3 +1,4 @@
+import { FirebaseService } from './../../providers/firebase.service';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { AuthService } from '../../providers/auth.service';
 import { Router } from '@angular/router';
@@ -13,7 +14,7 @@ export class ModalSigninComponent implements OnInit {
   @Input() path: string;
   @Output() close: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(public auth : AuthService, private router : Router) { }
+  constructor(public auth : AuthService, private router : Router, private afd : FirebaseService) { }
 
   ngOnInit() {
   }
@@ -24,6 +25,7 @@ export class ModalSigninComponent implements OnInit {
 
   signInWithGoogle(){
     this.auth.signInWithGoogle().then((data) => {
+      this.afd.addUser(data);
       this.onClose();
     });
   }

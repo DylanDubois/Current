@@ -19,6 +19,8 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { DiscoverComponent } from './pages/discover/discover.component';
 import { ModalSigninComponent } from './components/modal-signin/modal-signin.component';
 import { ModalEventDetailsComponent } from './components/modal-event-details/modal-event-details.component';
+import { ModalEventCreationComponent } from './components/modal-event-creation/modal-event-creation.component';
+import { FormsModule } from '@angular/forms';
 
 export const firebaseConfig = {
   production: true,
@@ -51,7 +53,8 @@ const appRoutes: Routes = [
     ContactComponent,
     DiscoverComponent,
     ModalSigninComponent,
-    ModalEventDetailsComponent
+    ModalEventDetailsComponent,
+    ModalEventCreationComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +67,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes
     ),
+    FormsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
