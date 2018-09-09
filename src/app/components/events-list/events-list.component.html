@@ -1,5 +1,11 @@
 <div class="list-header">
+    <i *ngIf="header == 'Events'" class="material-icons" style="float:left" (click)="addEvent()">
+        add
+    </i>
   <h1>{{header}}</h1>
+  <i *ngIf="header == 'Events'" class="material-icons" style="float: right">
+      filter_list
+  </i>
 </div>
 <div class="events-list">
   <div class="list-item" *ngFor="let event of events" (click)="onEventSelect(event)">
@@ -7,5 +13,6 @@
   </div>
 </div>
 
-<app-modal-event-details *ngIf="displayEvent" (close)="onClose($event)" [event]="event"></app-modal-event-details>
+<app-modal-event-details *ngIf="displayEvent" (close)="onClose($event)" [user]="user" [event]="event"></app-modal-event-details>
+<app-modal-event-creation *ngIf="displayEventAdd" [user]="user" (close)="onClose($event)"></app-modal-event-creation>
 

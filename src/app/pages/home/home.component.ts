@@ -69,7 +69,7 @@ export interface Event{
   lng: number,
   description: string,
   likes: number,
-  publisher: any,
+  publisher: {},
   comments: any[],
   type: string
 }
