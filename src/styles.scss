@@ -12,6 +12,8 @@ $prima: #005B7A;
 $main-font: Lobster;
 $secondary-font: Amaranth;
 
+$button-transition: all .2s ease-in;
+
 body {
     margin: 0;
     background: $primary-dark;
@@ -206,6 +208,7 @@ app-modal-event-creation{
             a {
                 text-decoration: none;
                 padding: 10px 20px;
+                transition: $button-transition;
             }
             a:hover {
                 color: $primary-light;

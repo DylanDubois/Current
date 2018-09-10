@@ -32,6 +32,7 @@
     .list-item {
         padding: .5em 1em;
         border-bottom: 2px solid $primary;
+        transition: $button-transition;
         h2 {
             color: $primary;
             font-family: $secondary-font;

@@ -32,8 +32,10 @@ export class ModalEventDetailsComponent implements OnInit {
   }
 
   deleteEvent() {
-    this.fbd.deleteEvent(this.event);
-    this.onClose();
+    if (confirm("Are you sure you want to delete this event?")){
+      this.fbd.deleteEvent(this.event, this.user.uid);
+      this.onClose();
+    }
   }
 }
 
