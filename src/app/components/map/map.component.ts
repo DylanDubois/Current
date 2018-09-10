@@ -23,14 +23,6 @@ export class MapComponent implements OnInit, OnChanges {
     this.lng = -91.1871;
   }
 
-  markerIcon = {
-      url: './assets/map-pin.png',
-      scaledSize: {
-          width: 30,
-          height: 30
-      }
-  }
-
   mapClicked(event) {
     this.chosenLocation.emit(event);
   }
