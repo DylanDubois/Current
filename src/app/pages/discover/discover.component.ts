@@ -29,8 +29,10 @@ export class DiscoverComponent implements OnInit {
   }
 
   userLogout() {
-    this.user = null;
-    this.auth.logout('discover');
+    if (confirm("Are you sure you want to logout?")){
+      this.user = null;
+      this.auth.logout('discover');
+    }
   }
 
   ngOnDestroy() {

@@ -36,8 +36,10 @@ export class EventsComponent implements OnInit {
   }
 
   userLogout() {
-    this.user = null;
-    this.auth.logout('events');
+    if (confirm("Are you sure you want to logout?")){
+      this.user = null;
+      this.auth.logout('events');
+    }
   }
 
   ngOnDestroy() {
