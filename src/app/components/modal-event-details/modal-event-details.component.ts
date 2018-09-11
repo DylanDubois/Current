@@ -18,7 +18,7 @@ export class ModalEventDetailsComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.userCanDelete = this.user.uid == this.event.publisher.uid;
+    this.userCanDelete = this.user ? this.user.uid == this.event.publisher.uid : false;
   }
 
   convertStartToString(start) {
