@@ -42,6 +42,12 @@
             color: $primary;
             font-family: $secondary-font;
         }
+
+        p {
+            color: $primary-dark;
+            font-family: $secondary-font;
+            font-size: .75em;
+        }
     }
 
     .list-item:hover {
@@ -51,6 +57,10 @@
         h2 {
             color: white;
             overflow: hidden;
+        }
+
+        p {
+            color: white;
         }
     }
 }

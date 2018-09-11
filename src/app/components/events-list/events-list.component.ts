@@ -23,9 +23,10 @@ export class EventsListComponent implements OnInit {
 
   displayEvent = false;
   displayEventAdd = false;
+  time: number;
 
   constructor(private fbd: FirebaseService) {
-
+    this.time = Date.now();
   }
 
   ngOnInit() {
@@ -36,6 +37,12 @@ export class EventsListComponent implements OnInit {
     this.displayEventAdd = true;
   }
 
+  convertStartToString(start) {
+    let diff = (this.time- start) / 3600000;
+
+    return diff > 1 ? Math.round(diff) + " hour(s) ago" : 'Less than an hour ago';
+  }
+
   sortBy(filter) {
     if (this.currentFilter === filter) {
       this.currentFilter = '';
@@ -44,13 +51,11 @@ export class EventsListComponent implements OnInit {
     else {
       this.currentFilter = filter;
       this.filteredEvents = this.events.slice(0);
-      console.log(this.filteredEvents);
       this.filteredEvents = this.filteredEvents.sort((a, b) => {
         if (a[filter] > b[filter]) return -1;
         if (a[filter] < b[filter]) return 1;
         return 0;
       });
-      console.log(this.filteredEvents, this.events);
     }
 
 
