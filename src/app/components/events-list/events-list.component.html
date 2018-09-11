@@ -2,17 +2,22 @@
     <i *ngIf="header == 'Events'" class="material-icons" style="float:left" (click)="addEvent()">
         add
     </i>
+    <i *ngIf="header == 'Events'" class="material-icons" style="float:left" (click)="sortBy('likes')">
+            thumb_up
+        </i>
   <h1>{{header}}</h1>
   <i *ngIf="header == 'Events'" class="material-icons" style="float: right">
-      filter_list
+      search
   </i>
+  <i *ngIf="header == 'Events'" class="material-icons" style="float: right" (click)="sortBy('type')">
+        class
+    </i>
 </div>
 <div class="events-list">
-  <div class="list-item" *ngFor="let event of events" (click)="onEventSelect(event)">
+  <div class="list-item" *ngFor="let event of filteredEvents ? filteredEvents : events" (click)="onEventSelect(event)">
       <h2>{{event.name}}</h2>
   </div>
 </div>
 
 <app-modal-event-details *ngIf="displayEvent" (close)="onClose($event)" [user]="user" [event]="event"></app-modal-event-details>
 <app-modal-event-creation *ngIf="displayEventAdd" [user]="user" (close)="onClose($event)"></app-modal-event-creation>
-

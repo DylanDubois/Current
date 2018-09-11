@@ -18,19 +18,42 @@ export class EventsListComponent implements OnInit {
 
   event;
 
+  filteredEvents = null;
+  currentFilter: string = '';
+
   displayEvent = false;
   displayEventAdd = false;
 
-  constructor(private fbd : FirebaseService) { 
+  constructor(private fbd: FirebaseService) {
 
   }
 
   ngOnInit() {
   }
 
-  addEvent(){
+  addEvent() {
     if (!this.user) return;
     this.displayEventAdd = true;
+  }
+
+  sortBy(filter) {
+    if (this.currentFilter === filter) {
+      this.currentFilter = '';
+      this.filteredEvents = null;
+    }
+    else {
+      this.currentFilter = filter;
+      this.filteredEvents = this.events.slice(0);
+      console.log(this.filteredEvents);
+      this.filteredEvents = this.filteredEvents.sort((a, b) => {
+        if (a[filter] > b[filter]) return -1;
+        if (a[filter] < b[filter]) return 1;
+        return 0;
+      });
+      console.log(this.filteredEvents, this.events);
+    }
+
+
   }
 
   onClose(event) {
