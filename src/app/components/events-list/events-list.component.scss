@@ -18,10 +18,16 @@
 
     i {
         display: inline;
-        font-size: 2em;
+        font-size: 1.75em;
+        margin-top: 4px;
         cursor: pointer;
         padding: 4px;
     }
+}
+
+.selected-filter {
+    color: $primary-light;
+    background: white;
 }
 
 .events-list {

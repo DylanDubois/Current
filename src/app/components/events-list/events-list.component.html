@@ -2,14 +2,14 @@
     <i *ngIf="header == 'Events'" class="material-icons" style="float:left" (click)="addEvent()">
         add
     </i>
-    <i *ngIf="header == 'Events'" class="material-icons" style="float:left" (click)="sortBy('likes')">
+    <i *ngIf="header == 'Events'" [ngClass]="currentFilter == 'likes' ? 'selected-filter' : ''" class="material-icons" style="float:left" (click)="sortBy('likes')">
             thumb_up
         </i>
   <h1>{{header}}</h1>
   <i *ngIf="header == 'Events'" class="material-icons" style="float: right">
       search
   </i>
-  <i *ngIf="header == 'Events'" class="material-icons" style="float: right" (click)="sortBy('type')">
+  <i *ngIf="header == 'Events'" [ngClass]="currentFilter == 'type' ? 'selected-filter' : ''" class="material-icons" style="float: right" (click)="sortBy('type')">
         class
     </i>
 </div>
