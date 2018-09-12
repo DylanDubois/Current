@@ -10,19 +10,25 @@
     justify-content: center;
     background: $primary-light;
     box-shadow: 0 3px 15px rgba(0,0,0,0.4);
-
+    padding: .5em;
     h1 {
         font-size: 2em;
-        padding: .5em;
         display: inline;
     }
 
     i {
         display: inline;
-        font-size: 2em;
+        font-size: 1.75em;
         margin-top: 4px;
         cursor: pointer;
+        padding: 4px;
     }
+}
+
+.selected-filter {
+    color: $primary-light;
+    background: white;
+    border-radius: 20px;
 }
 
 .events-list {
@@ -37,6 +43,12 @@
             color: $primary;
             font-family: $secondary-font;
         }
+
+        p {
+            color: $primary-dark;
+            font-family: $secondary-font;
+            font-size: .75em;
+        }
     }
 
     .list-item:hover {
@@ -46,6 +58,10 @@
         h2 {
             color: white;
             overflow: hidden;
+        }
+
+        p {
+            color: white;
         }
     }
 }

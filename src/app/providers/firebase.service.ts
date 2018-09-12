@@ -24,16 +24,22 @@ export class FirebaseService {
 
     addEvent(event, uid) {
         let userObs = this.afd.object(`/users/${uid}`).valueChanges().subscribe((user)=>{
-            if (user && !user['posts']) {
+            if (user && (!user['posts'] || user['posts'].length < 2)) {
                 this.afd.object(`/events/${event.start}`).set(event);
-                this.afd.object(`/users/${uid}`).update({posts: [event.start]});
+                if (!user['posts']){
+                    user['posts'] = [];
+                    user['posts'].push(event.start);
+                }
+                else {
+                    user['posts'].push(event.start);
+                }
+                this.afd.object(`/users/${uid}`).update({posts: user['posts']});
                 userObs.unsubscribe();
             }
             else {
                 alert("You have have posted too many events.");
                 userObs.unsubscribe();
             }
-
             
         });
     }
@@ -43,7 +49,15 @@ export class FirebaseService {
     }
 
     deleteEvent(event, uid) {
-        this.afd.object(`/events/${event.start}`).remove();
-        this.afd.object(`/users/${uid}`).update({posts: null});
+        let userObs = this.afd.object(`/users/${uid}`).valueChanges().subscribe((user)=>{
+            if (user['posts'].length != 0) {
+                let tmpPosts = user['posts'].splice(0);
+                tmpPosts = tmpPosts.filter((post) => {return post != event.start});
+                this.afd.object(`/events/${event.start}`).remove();
+                this.afd.object(`/users/${uid}`).update({posts: tmpPosts});
+                userObs.unsubscribe();
+            }
+            
+        });
     }
 }

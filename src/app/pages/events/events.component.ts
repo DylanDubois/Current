@@ -28,6 +28,7 @@ export class EventsComponent implements OnInit {
   ngOnInit() {
     this.fbObservable = this.fbd.getEvents().valueChanges().subscribe(data => {
       this.allEvents = data;
+      this.allEvents.reverse();
     });
     this.authState = this.auth.getAuthState().subscribe((auth) =>{
       if (auth)
