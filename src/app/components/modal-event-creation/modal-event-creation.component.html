@@ -25,7 +25,7 @@
             <textarea rows="5" required [(ngModel)]="newEvent.description" name="description" maxlength="500" placeholder="500 characters or less"></textarea>
         </div>
       </form>
-      <app-map (chosenLocation)="mapClicked($event)" [markers]="[newEvent]"></app-map>
+      <app-map (selectedLocation)="mapClicked($event)" [markers]="[newEvent]"></app-map>
     </div>
 
     <button type="submit" class="post-btn" (click)="postEvent()">Post</button>

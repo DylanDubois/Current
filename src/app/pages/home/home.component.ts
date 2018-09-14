@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
 
   selectedEvent: any;
   fbObservable: any;
+  displayEvent: boolean;
 
   constructor(private fbd : FirebaseService, public auth : AuthService) {
    }
@@ -52,15 +53,13 @@ export class HomeComponent implements OnInit {
   onClose(message:boolean):void {
     this.displaySignin = false;
     this.displayDropdown = false;
+    this.displayEvent = false;
   }
 
   eventSelected(event) {
     this.selectedEvent = event;
+    this.displayEvent = true;
   }
-
-  // chosenLocation(event): void {
-  //   console.log(event);
-  // }
 
 }
 

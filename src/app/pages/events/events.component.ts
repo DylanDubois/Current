@@ -21,6 +21,7 @@ export class EventsComponent implements OnInit {
   user;
 
   fbObservable: any;
+  displayEvent: boolean = false;
 
   constructor(private fbd : FirebaseService, public auth : AuthService) {
    }
@@ -52,10 +53,12 @@ export class EventsComponent implements OnInit {
   onClose(message:boolean):void {
     this.displaySignin = false;
     this.displayDropdown = false;
+    this.displayEvent = false;
   }
 
   eventSelected(event) {
     this.selectedEvent = event;
+    this.displayEvent = true;
   }
 
 }

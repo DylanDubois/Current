@@ -21,7 +21,6 @@ export class EventsListComponent implements OnInit {
   filteredEvents = null;
   currentFilter: string = '';
 
-  displayEvent = false;
   displayEventAdd = false;
   time: number;
 
@@ -61,15 +60,8 @@ export class EventsListComponent implements OnInit {
 
   }
 
-  onClose(event) {
-    this.displayEvent = false;
-    this.displayEventAdd = false;
-  }
-
   onEventSelect(event) {
-    this.event = event;
     this.selectedEvent.emit(event);
-    this.displayEvent = true;
   }
 
 }

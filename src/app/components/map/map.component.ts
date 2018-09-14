@@ -8,9 +8,10 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angu
 export class MapComponent implements OnInit, OnChanges {
 
   @Input() markers;
-  @Input() selectedEvent;
+  @Input() event;
 
-  @Output() chosenLocation: EventEmitter<any> = new EventEmitter<any>();
+  @Output() selectedEvent: EventEmitter<any> = new EventEmitter<any>();
+  @Output() selectedLocation: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
@@ -24,13 +25,17 @@ export class MapComponent implements OnInit, OnChanges {
   }
 
   mapClicked(event) {
-    this.chosenLocation.emit(event);
+    this.selectedLocation.emit(event);
+  }
+
+  markerClicked(marker){
+    this.selectedEvent.emit(marker);
   }
 
   ngOnChanges(changes) {
-    if (changes.selectedEvent && changes.selectedEvent.currentValue){
-      this.lat = changes.selectedEvent.currentValue.lat;
-      this.lng = changes.selectedEvent.currentValue.lng;
+    if (changes.event && changes.event.currentValue){
+      this.lat = changes.event.currentValue.lat;
+      this.lng = changes.event.currentValue.lng;
       this.zoom = 11;
     }
     
