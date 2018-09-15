@@ -64,4 +64,8 @@ export class EventsListComponent implements OnInit {
     this.selectedEvent.emit(event);
   }
 
+  onClose(message:boolean):void {
+    this.displayEventAdd = false;
+  }
+
 }
