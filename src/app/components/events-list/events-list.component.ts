@@ -32,7 +32,10 @@ export class EventsListComponent implements OnInit {
   }
 
   addEvent() {
-    if (!this.user) return;
+    if (!this.user){
+      alert("Sign-in to post events!");
+      return;
+    }
     this.displayEventAdd = true;
   }
 
