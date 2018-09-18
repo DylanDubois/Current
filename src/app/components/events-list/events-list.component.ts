@@ -22,6 +22,7 @@ export class EventsListComponent implements OnInit {
   currentFilter: string = '';
 
   displayEventAdd = false;
+  displayEventSearch = false;
   time: number;
 
   constructor(private fbd: FirebaseService) {

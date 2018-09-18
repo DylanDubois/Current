@@ -25,6 +25,19 @@
     }
 }
 
+.search {
+    height: 40px;
+
+    input {
+        font-size: 1em;
+        padding: .5em;
+        width: 75%;
+        float: left;
+        color: $primary-light;
+        font-family: $secondary-font;
+    }
+}
+
 .selected-filter {
     color: $primary-light;
     background: white;
