@@ -20,10 +20,12 @@ export class EventsListComponent implements OnInit {
 
   filteredEvents = null;
   currentFilter: string = '';
+  searchKeys: string = "";
 
   displayEventAdd = false;
   displayEventSearch = false;
   time: number;
+
 
   constructor(private fbd: FirebaseService) {
     this.time = Date.now();
@@ -60,8 +62,25 @@ export class EventsListComponent implements OnInit {
         return 0;
       });
     }
+  }
 
+  eventSearch() {
+    if (this.displayEventSearch) {
+      this.displayEventSearch = false;
+      this.searchKeys = "";
+      return;
+    }
+    else {
+      this.displayEventSearch = true;
+      this.sortBy(this.currentFilter);
+    }
+  }
 
+  filterChange(event){
+    this.filteredEvents = this.events.slice(0);
+    this.filteredEvents = this.filteredEvents.filter((event) => {
+      return event['name'].toLowerCase().includes(this.searchKeys) || event['description'].toLowerCase().includes(this.searchKeys);
+    });
   }
 
   onEventSelect(event) {
