@@ -1,18 +1,28 @@
-<div class="list-header">
-    <i *ngIf="header == 'Events'" class="material-icons" style="float:left" (click)="addEvent()">
+<div class="list-header" *ngIf="!displayEventSearch">
+    <i *ngIf="header == 'Events'" class="material-icons" style="grid-column: 1/2" (click)="addEvent()">
         add
     </i>
-    <i *ngIf="header == 'Events'" [ngClass]="currentFilter == 'likes' ? 'selected-filter' : ''" class="material-icons" style="float:left" (click)="sortBy('likes')">
+    <i *ngIf="header == 'Events'" [ngClass]="currentFilter == 'likes' ? 'selected-filter' : ''" class="material-icons" style="grid-column: 2/3" (click)="sortBy('likes')">
             thumb_up
         </i>
   <h1>{{header}}</h1>
-  <i *ngIf="header == 'Events'" class="material-icons" style="float: right">
+  <i *ngIf="header == 'Events'" [ngClass]="currentFilter == 'type' ? 'selected-filter' : ''" class="material-icons" style="grid-column: 5/6" (click)="sortBy('type')">
+    class
+</i>
+  <i *ngIf="header == 'Events'" class="material-icons" style="grid-column: 6/7" (click)="eventSearch()">
       search
   </i>
-  <i *ngIf="header == 'Events'" [ngClass]="currentFilter == 'type' ? 'selected-filter' : ''" class="material-icons" style="float: right" (click)="sortBy('type')">
-        class
+</div>
+
+<!-- if search is active -->
+<div class="list-header search" *ngIf="displayEventSearch">
+        <input type="text" [(ngModel)]="searchKeys" maxlength="25" placeholder="Search" (input)="filterChange($event)">
+    <i *ngIf="header == 'Events'" class="material-icons" style="grid-column: 6/7" (click)="eventSearch()">
+        search
     </i>
 </div>
+
+
 <div class="events-list">
   <div class="list-item" *ngFor="let event of filteredEvents ? filteredEvents : events" (click)="onEventSelect(event)">
       <h2>{{event.name}}</h2>

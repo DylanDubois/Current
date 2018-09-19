@@ -11,18 +11,38 @@
     background: $primary-light;
     box-shadow: 0 3px 15px rgba(0,0,0,0.4);
     padding: .5em;
+    display: grid;
+    grid-auto-columns: 1fr 1fr 2fr 1fr 1fr;
+    grid-gap: .5em;
     h1 {
         font-size: 2em;
         display: inline;
+        display: grid;
+        grid-column: 3/5;
     }
 
     i {
-        display: inline;
         font-size: 1.75em;
         margin-top: 4px;
         cursor: pointer;
         padding: 4px;
+        display: grid;
     }
+}
+
+.search {
+    height: 40px;
+
+    input {
+        font-size: 1em;
+        padding: .5em;
+        float: left;
+        color: $primary-light;
+        font-family: $secondary-font;
+        display: grid;
+        grid-column: 1/6;
+    }
+
 }
 
 .selected-filter {
