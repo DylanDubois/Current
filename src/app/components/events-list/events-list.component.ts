@@ -79,7 +79,7 @@ export class EventsListComponent implements OnInit {
   filterChange(event){
     this.filteredEvents = this.events.slice(0);
     this.filteredEvents = this.filteredEvents.filter((event) => {
-      return event['name'].toLowerCase().includes(this.searchKeys) || event['description'].toLowerCase().includes(this.searchKeys);
+      return event['name'].toLowerCase().includes(this.searchKeys.toLowerCase()) || event['description'].toLowerCase().includes(this.searchKeys.toLowerCase());
     });
   }
 
