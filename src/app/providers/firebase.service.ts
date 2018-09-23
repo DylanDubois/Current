@@ -25,6 +25,8 @@ export class FirebaseService {
     addEvent(event, uid) {
         let userObs = this.afd.object(`/users/${uid}`).valueChanges().subscribe((user)=>{
             if (user && (!user['posts'] || user['posts'].length < 2)) {
+                event['eventLikers'] = [];
+                event['eventLikers'].push(uid);
                 this.afd.object(`/events/${event.start}`).set(event);
                 if (!user['posts']){
                     user['posts'] = [];
@@ -57,7 +59,41 @@ export class FirebaseService {
                 this.afd.object(`/users/${uid}`).update({posts: tmpPosts});
                 userObs.unsubscribe();
             }
+            else {
+                userObs.unsubscribe();
+            }
             
         });
+    }
+
+    likeEvent(event, uid){
+        let eventObs = this.afd.object(`/events/${event.start}`).valueChanges().subscribe((eventOb)=>{
+            if (eventOb && !eventOb['eventLikers'].includes(uid)) {
+                eventOb['eventLikers'].push(uid);
+                this.afd.object(`/events/${event.start}`).update({eventLikers: eventOb['eventLikers']});
+                eventObs.unsubscribe();
+            }
+            else {
+                eventObs.unsubscribe();
+            }
+            
+        });
+    }
+
+    dislikeEvent(event, uid){
+        let eventObs = this.afd.object(`/events/${event.start}`).valueChanges().subscribe((eventOb)=>{
+            if (eventOb && eventOb['eventLikers'].includes(uid)) {
+                eventOb['eventLikers'] = eventOb['eventLikers'].filter((likerId) => {
+                    return likerId != uid;
+                });
+                this.afd.object(`/events/${event.start}`).update({eventLikers: eventOb['eventLikers']});
+                eventObs.unsubscribe();
+            }
+            else {
+                eventObs.unsubscribe();
+            }
+            
+        });
+
     }
 }

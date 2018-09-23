@@ -12,6 +12,7 @@ export class ModalEventDetailsComponent implements OnInit {
   @Input() user;
 
   userCanDelete: boolean = false;
+  userCanLike: boolean;
   time;
   constructor(private fbd : FirebaseService) {
     this.time = Date.now();
@@ -19,6 +20,7 @@ export class ModalEventDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.userCanDelete = this.user ? this.user.uid == this.event.publisher.uid : false;
+    this.userCanLike = this.user && this.event['eventLikers'].includes(this.user.uid) ? false : true;
   }
 
   convertStartToString(start) {
@@ -35,6 +37,17 @@ export class ModalEventDetailsComponent implements OnInit {
     if (confirm("Are you sure you want to delete this event?")){
       this.fbd.deleteEvent(this.event, this.user.uid);
       this.onClose();
+    }
+  }
+
+  likeEvent() {
+    if (this.userCanLike){
+      this.fbd.likeEvent(this.event, this.user.uid );
+      this.userCanLike = false;
+    }
+    else if (this.user && this.event.publisher.uid != this.user.uid) {
+      this.fbd.dislikeEvent(this.event, this.user.uid);
+      this.userCanLike = true;
     }
   }
 }

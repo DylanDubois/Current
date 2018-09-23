@@ -85,6 +85,13 @@
     i {
         width: 20px;
     }
+ }
+
+ .like-btn:hover, .liked-event {
+    background: white;
+    i{
+        color: $primary-light;
+    }
 }
 
 @media only screen and (min-width: 700px) {
