@@ -26,7 +26,7 @@
 <div class="events-list">
   <div class="list-item" *ngFor="let event of filteredEvents ? filteredEvents : events" (click)="onEventSelect(event)">
       <h2>{{event.name}}</h2>
-      <p>{{ convertStartToString(event.start)}} - {{ event.type }} - {{event.likes}} {{event.likes == 1 ? 'like' : 'likes'}}</p>
+      <p>{{ convertStartToString(event.start)}} - {{ event.type }} - {{event['eventLikers'].length}} {{event['eventLikers'].length == 1 ? 'like' : 'likes'}}</p>
   </div>
 </div>
 <app-modal-event-creation *ngIf="displayEventAdd" [user]="user" (close)="onClose($event)"></app-modal-event-creation>

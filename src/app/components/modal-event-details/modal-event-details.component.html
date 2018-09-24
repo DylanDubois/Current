@@ -19,7 +19,7 @@
       <h2>Description:</h2>
       <p>{{ event.description }}</p>
     </div>
-    <button class="like-btn">
+    <button class="like-btn" [ngClass]="!userCanLike ? 'liked-event' : ''" (click)="likeEvent()">
       <i class="material-icons">
         thumb_up_alt
       </i>

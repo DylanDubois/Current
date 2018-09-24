@@ -53,12 +53,21 @@ export class EventsListComponent implements OnInit {
       this.currentFilter = '';
       this.filteredEvents = null;
     }
+    else if (filter == 'likes') {
+      this.currentFilter = filter;
+      this.filteredEvents = this.events.slice(0);
+      this.filteredEvents = this.filteredEvents.sort((a, b) => {
+        if (a['eventLikers'].length > b['eventLikers'].length) return -1;
+        if ((a['eventLikers'].length < b['eventLikers'].length)) return 1;
+        return 0;
+      });
+    }
     else {
       this.currentFilter = filter;
       this.filteredEvents = this.events.slice(0);
       this.filteredEvents = this.filteredEvents.sort((a, b) => {
-        if (a[filter] > b[filter]) return -1;
-        if (a[filter] < b[filter]) return 1;
+        if (a[filter] < b[filter]) return -1;
+        if (a[filter] > b[filter]) return 1;
         return 0;
       });
     }
@@ -68,7 +77,6 @@ export class EventsListComponent implements OnInit {
     if (this.displayEventSearch) {
       this.displayEventSearch = false;
       this.searchKeys = "";
-      return;
     }
     else {
       this.displayEventSearch = true;

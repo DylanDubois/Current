@@ -85,11 +85,25 @@
     i {
         width: 20px;
     }
+ }
+
+.liked-event {
+    background: white;
+    i{
+        color: $primary-light;
+    }
 }
 
 @media only screen and (min-width: 700px) {
 
     .modal-body {
         box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+    }
+
+    .like-btn:hover{
+        background: white;
+        i{
+            color: $primary-light;
+        }
     }
 }

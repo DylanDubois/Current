@@ -45,7 +45,6 @@ export class ModalEventCreationComponent implements OnInit {
   mapClicked(event) {
     this.newEvent.lat = event.coords.lat;
     this.newEvent.lng = event.coords.lng;
-    console.log(event);
   }
 
   onClose() {
