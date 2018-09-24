@@ -87,7 +87,7 @@
     }
  }
 
- .like-btn:hover, .liked-event {
+.liked-event {
     background: white;
     i{
         color: $primary-light;
@@ -98,5 +98,12 @@
 
     .modal-body {
         box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+    }
+
+    .like-btn:hover{
+        background: white;
+        i{
+            color: $primary-light;
+        }
     }
 }
