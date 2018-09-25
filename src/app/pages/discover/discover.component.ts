@@ -17,6 +17,9 @@ export class DiscoverComponent implements OnInit {
   authState;
 
   user;
+  fbObservable: any;
+  selectedEvent: any;
+  displayEvent: boolean;
 
   constructor(private fbd : FirebaseService, public auth : AuthService) {
    }
@@ -25,6 +28,10 @@ export class DiscoverComponent implements OnInit {
     this.authState = this.auth.getAuthState().subscribe((auth) =>{
       if (auth)
         this.user = auth;
+    });
+    this.fbObservable = this.fbd.getEvents().valueChanges().subscribe(data => {
+      this.allEvents = data;
+      this.allEvents.reverse();
     });
   }
 
@@ -38,10 +45,17 @@ export class DiscoverComponent implements OnInit {
   ngOnDestroy() {
     console.log("discover destroyed gg rekt");
     this.authState.unsubscribe();
+    this.fbObservable.unsubscribe();
   }
 
   onClose(message:boolean):void {
     this.displaySignin = false;
     this.displayDropdown = false;
+  }
+
+  eventSelected(event) {
+    this.selectedEvent = event;
+    this.displayEvent = true;
+    console.log(event);
   }
 }

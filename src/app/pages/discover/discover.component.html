@@ -41,6 +41,10 @@
       </div>
     </nav>
 
+    <div class="list-container">
+        <app-discover-list [events]="allEvents" (selectedEvent)="eventSelected($event)"></app-discover-list>
+    </div>
+
   <div class="footer">
     <h5>Made by <a href="https://www.linkedin.com/in/dylan-dubois/">Dylan Dubois</a></h5>
     <h5>Current &copy; 2018</h5>

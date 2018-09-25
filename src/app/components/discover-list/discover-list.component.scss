@@ -1,0 +1,105 @@
+@import '../..//../styles.scss';
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.list-header {
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    background: $primary-light;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.4);
+    padding: .5em;
+    display: grid;
+    grid-auto-columns: 1fr 1fr 2fr 1fr 1fr;
+    grid-gap: .5em;
+    height: 2.5em;
+    z-index: 9;
+    h1 {
+        font-size: 2em;
+        display: inline;
+    }
+
+    input {
+        font-size: 1em;
+        padding: .5em;
+        float: left;
+        color: $primary-light;
+        font-family: $secondary-font;
+        display: grid;
+        grid-column: 1/2;
+        height: 25px;
+    }
+
+    .header-icons {
+        grid-column: 2/3;
+        i {
+            font-size: 2em;
+            margin-top: 4px;
+            cursor: pointer;
+            padding: 4px;
+            float: left;
+        }
+    }
+}
+
+
+.selected-filter {
+    color: $primary-light;
+    background: white;
+    border-radius: 20px;
+}
+
+.events-list {
+    overflow: scroll;
+    max-height: 430px;
+    background: white;
+    .list-item {
+        padding: .5em 1em;
+        border-bottom: 2px solid $primary;
+        transition: $button-transition;
+        h2 {
+            color: $primary;
+            font-family: $secondary-font;
+        }
+
+        p {
+            color: $primary-dark;
+            font-family: $secondary-font;
+            font-size: 1em;
+            display: inline;
+        }
+
+        .progress-background{
+            float: right;
+            display: inline-block;
+            width: 30%;
+            background: lightgray;
+        }
+
+        .progress-blue {
+            background: $primary-light;
+        }
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .list-item:hover {
+        background: $primary-dark;
+        transform: scaleY(1.1);
+        cursor: pointer;
+        h2 {
+            color: white!important;
+            overflow: hidden;
+        }
+
+        p {
+            color: white!important;
+        }
+
+        .progress-background {
+            background: white;
+        }
+    }
+}

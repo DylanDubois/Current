@@ -21,6 +21,7 @@ import { ModalSigninComponent } from './components/modal-signin/modal-signin.com
 import { ModalEventDetailsComponent } from './components/modal-event-details/modal-event-details.component';
 import { ModalEventCreationComponent } from './components/modal-event-creation/modal-event-creation.component';
 import { FormsModule } from '@angular/forms';
+import { DiscoverListComponent } from './components/discover-list/discover-list.component';
 
 export const firebaseConfig = {
   production: true,
@@ -54,7 +55,8 @@ const appRoutes: Routes = [
     DiscoverComponent,
     ModalSigninComponent,
     ModalEventDetailsComponent,
-    ModalEventCreationComponent
+    ModalEventCreationComponent,
+    DiscoverListComponent
   ],
   imports: [
     BrowserModule,
