@@ -178,6 +178,24 @@ app-modal-event-creation{
     }
 }
 
+app-modal-discover-creation{
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    height: 150%;
+    z-index: 10;
+    .modal-body{
+        height: 550px;
+        width: 100%;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -25%);
+            position: absolute;
+        background: $primary-dark;
+    }
+}
+
 
 @media only screen and (min-width: 700px) {
     .grid {
@@ -319,6 +337,19 @@ app-modal-event-creation{
     
         .modal-body{
             height: 650px;
+            width: 500px;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -25%);
+            position: absolute;
+        }
+    
+    }
+    app-modal-discover-creation{
+        height: 130%;
+    
+        .modal-body{
+            height: 550px;
             width: 500px;
             top: 35%;
             left: 50%;

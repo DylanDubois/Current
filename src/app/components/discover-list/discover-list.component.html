@@ -5,7 +5,7 @@
     <i [ngClass]="currentFilter == 'likes' ? 'selected-filter' : ''" class="material-icons" style="grid-column: 2/3" (click)="sortBy('likes')">
         thumb_up
     </i>
-    <h1 style="grid-column: 3/5">Discover</h1>
+    <h1 style="grid-column: 3/5">Explore</h1>
     <i [ngClass]="currentFilter == 'type' ? 'selected-filter' : ''" class="material-icons" style="grid-column: 5/6" (click)="sortBy('type')">
         class
     </i>
@@ -33,4 +33,4 @@
     </div>
 </div>
 
-<app-modal-event-creation *ngIf="displayEventAdd" [user]="user" (close)="onClose($event)"></app-modal-event-creation>
+<app-modal-discover-creation *ngIf="displayEventAdd" [user]="user" (close)="onClose($event)"></app-modal-discover-creation>

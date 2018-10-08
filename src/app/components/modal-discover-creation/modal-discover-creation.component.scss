@@ -1,0 +1,113 @@
+@import '../..//../styles.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: $main-font;
+    font-weight: 100;
+}
+
+.modal-header {
+    background: $primary-light;
+    text-align: center;
+    padding: .5em;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.4);
+    h1 {
+        display: inline;
+        padding-left: 28px;
+        font-size: 1.75em;
+    }
+
+    a {
+        //margin-top: -4px;
+        padding: 8px;
+        float: right;
+        cursor: pointer;
+    }
+}
+
+    .event-creation-form {
+        overflow: scroll;
+        background: $primary-light;
+        margin: 1em;
+        padding: 1em;
+        max-height: 450px;
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+        label {
+            font-size: 1.5em;
+            margin: 1em 0;
+            font-family: $secondary-font;
+        }
+
+        input {
+            font-size: 1em;
+            color: $primary-light;
+            font-family: $secondary-font;
+            margin: .5em 0;
+            padding: .5em;
+        }
+
+        .name-form {
+            input {
+                width: 45%;
+            }
+        }
+
+        .form-group {
+            textarea{
+                color: $primary-light;
+                margin: .5em 0;
+                padding: .5em;
+                width: -webkit-fill-available;
+                font-size: 1em;
+                font-family: $secondary-font;
+            }
+        }
+
+        select {
+            background: white;
+            color: $primary-light;
+            font-size: 1em;
+            margin: .5em 0;
+            padding: .5em;
+        }
+
+        agm-map {
+            margin: 1em;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+        }
+    }
+
+    .post-btn{
+        background: $primary-light;
+        padding: .5em 1.5em;
+        bottom: 2%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        position: absolute;
+        font-size: 1.7em;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.4);
+        
+        i {
+            width: 20px;
+        }
+    }
+
+    .post-btn:hover{
+        background: white;
+        color: $primary-light;
+    }
+
+@media only screen and (min-width: 700px) {
+
+    .modal-body {
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+    }
+
+    .post-btn {
+        transition: $button-transition;
+    }
+}
