@@ -21,15 +21,16 @@ export class DiscoverListComponent implements OnInit {
   searchKeys: string = "";
 
   displayEventAdd = false;
+  displayEventSearch = false;
   time: number;
 
 
+  
   constructor(private fbd: FirebaseService) {
     this.time = Date.now();
   }
 
   ngOnInit() {
-    console.log(this.events);
   }
 
   addEvent() {
@@ -72,6 +73,14 @@ export class DiscoverListComponent implements OnInit {
   }
 
   eventSearch() {
+    if (this.displayEventSearch) {
+      this.displayEventSearch = false;
+      this.searchKeys = "";
+    }
+    else {
+      this.displayEventSearch = true;
+      this.sortBy(this.currentFilter);
+    }
   }
 
   filterChange(event){

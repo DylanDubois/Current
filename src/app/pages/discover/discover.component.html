@@ -42,7 +42,7 @@
     </nav>
 
     <div class="list-container">
-        <app-discover-list [events]="allEvents" (selectedEvent)="eventSelected($event)"></app-discover-list>
+        <app-discover-list [user]="user" [events]="allEvents" (selectedEvent)="eventSelected($event)"></app-discover-list>
     </div>
 
   <div class="footer">
