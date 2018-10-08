@@ -25,10 +25,10 @@
 <div class="events-list">
     <div class="list-item" *ngFor="let event of filteredEvents ? filteredEvents : events" (click)="onEventSelect(event)">
         <h2>{{event.name}}</h2>
-        <p>{{ convertStartToString(event.start)}} - {{ event.type }} - {{event['eventLikers'].length}} {{event['eventLikers'].length
+        <p>{{ convertStartToString(event.start)}} - {{event['eventLikers'].length}} {{event['eventLikers'].length
             == 1 ? 'like' : 'likes'}}</p>
         <div class="progress-background">
-            <div class="progress-blue" style="height:24px;" [style.width.%]="(event['eventLikers'].length / 10) * 100"></div>
+            <div class="progress-blue" style="height:24px;" [style.width.%]="(event['eventLikers'].length / event.goal) * 100"></div>
         </div>
     </div>
 </div>

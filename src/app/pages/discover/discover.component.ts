@@ -29,7 +29,7 @@ export class DiscoverComponent implements OnInit {
       if (auth)
         this.user = auth;
     });
-    this.fbObservable = this.fbd.getEvents().valueChanges().subscribe(data => {
+    this.fbObservable = this.fbd.getExploreEvents().valueChanges().subscribe(data => {
       this.allEvents = data;
       this.allEvents.reverse();
     });
@@ -51,11 +51,11 @@ export class DiscoverComponent implements OnInit {
   onClose(message:boolean):void {
     this.displaySignin = false;
     this.displayDropdown = false;
+    this.displayEvent = false;
   }
 
   eventSelected(event) {
     this.selectedEvent = event;
     this.displayEvent = true;
-    console.log(event);
   }
 }

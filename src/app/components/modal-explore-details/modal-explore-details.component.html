@@ -1,0 +1,34 @@
+<div class="event-details-modal">
+    <div class="modal-body">
+      <div class="modal-header">
+        <a *ngIf="userCanDelete" (click)="deleteEvent()" class="delete-btn">
+          <i class="material-icons">delete</i>
+        </a>
+        <h1>{{ event.name }}</h1>
+        <a (click)="onClose()">
+          <i class="material-icons">close</i>
+        </a>
+      </div>
+      <div class="event-details">
+        <div class="publisher-header">
+          <img [src]="event.publisher.photoURL" />
+          <h1>{{ event.publisher.name }}</h1>
+        </div>
+        <h2>Posted {{convertStartToString(event.start)}}</h2>
+        <h2>Progress:</h2>
+        <div class="progress-background">
+            <div class="progress-blue" style="height:24px;" [style.width.%]="(event['eventLikers'].length / event.goal) * 100"></div>
+        </div>
+        <h2>Description:</h2>
+        <p>{{ event.description }}</p>
+        <div class="new-comment-box">
+            <textarea rows="5" required  name="description" maxlength="500" placeholder="500 characters or less"></textarea>
+        </div>
+      </div>
+      <!-- <button class="like-btn" [ngClass]="!userCanLike ? 'liked-event' : ''" (click)="likeEvent()">
+        <i class="material-icons">
+          thumb_up_alt
+        </i>
+      </button> -->
+    </div>
+  </div>
