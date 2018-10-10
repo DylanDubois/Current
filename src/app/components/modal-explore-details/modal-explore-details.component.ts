@@ -58,9 +58,14 @@ export class ModalExploreDetailsComponent implements OnInit {
   }
 
   postComment() {
+    if (!this.newComment.text) return;
     this.time = Date.now();
     this.newComment.postTime = this.time;
     this.newComment.publisher = {name: this.user.displayName, photoURL: this.user.photoURL, uid: this.user.uid};
     this.fbd.postExploreComment(this.newComment, this.event.start);
+    this.newComment = {    
+      text: '',
+      publisher: {},
+      postTime: 1};
   }
 }
