@@ -14,6 +14,12 @@ export class ModalExploreDetailsComponent implements OnInit {
   userCanDelete: boolean = false;
   userCanLike: boolean;
   time;
+
+  newComment = {
+    text: '',
+    publisher: {},
+    postTime: 1
+  }
   constructor(private fbd : FirebaseService) {
     this.time = Date.now();
    }
@@ -49,5 +55,12 @@ export class ModalExploreDetailsComponent implements OnInit {
       this.fbd.dislikeEvent(this.event, this.user.uid);
       this.userCanLike = true;
     }
+  }
+
+  postComment() {
+    this.time = Date.now();
+    this.newComment.postTime = this.time;
+    this.newComment.publisher = {name: this.user.displayName, photoURL: this.user.photoURL, uid: this.user.uid};
+    this.fbd.postExploreComment(this.newComment, this.event.start);
   }
 }

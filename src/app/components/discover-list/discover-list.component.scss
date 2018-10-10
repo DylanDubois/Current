@@ -88,24 +88,6 @@
 }
 
 @media only screen and (min-width: 700px) {
-    .list-item:hover {
-        background: $primary-dark;
-        transform: scaleY(1.1);
-        cursor: pointer;
-        h2 {
-            color: white!important;
-            overflow: hidden;
-        }
-
-        p {
-            color: white!important;
-        }
-
-        .progress-background {
-            background: white;
-        }
-    }
-
     .list-item {
         display: grid;
         grid-auto-columns: 4fr 1fr;
@@ -125,6 +107,24 @@
 
         .progress-blue {
             background: $primary-light;
+        }
+    }
+
+    .list-item:hover {
+        background: $primary-dark;
+        transform: scaleY(1.1);
+        cursor: pointer;
+        h2 {
+            color: white!important;
+            overflow: hidden;
+        }
+
+        p {
+            color: white!important;
+        }
+
+        .progress-background {
+            background: white!important;
         }
     }
 }

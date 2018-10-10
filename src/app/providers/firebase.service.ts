@@ -140,4 +140,8 @@ export class FirebaseService {
         });
 
     }
+
+    postExploreComment(comment, eventId) {
+        this.afd.list(`/exploreComments/${eventId}`).push(comment);
+    }
 }
