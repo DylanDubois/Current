@@ -15,6 +15,9 @@ export class ModalExploreDetailsComponent implements OnInit {
   userCanLike: boolean;
   time;
 
+  commentsObservable;
+  comments = [];
+
   newComment = {
     text: '',
     publisher: {},
@@ -25,6 +28,10 @@ export class ModalExploreDetailsComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.commentsObservable = this.fbd.getExploreComments(this.event.start).valueChanges().subscribe((comments) => {
+        this.comments = comments;
+        console.log(comments);
+    });
     this.userCanDelete = this.user ? this.user.uid == this.event.publisher.uid : false;
     this.userCanLike = this.user && this.event['eventLikers'].includes(this.user.uid) ? false : true;
   }
@@ -37,6 +44,10 @@ export class ModalExploreDetailsComponent implements OnInit {
 
   onClose() {
     this.close.emit(false);
+  }
+
+  ngOnDestroy(){
+    this.commentsObservable.unscribe();
   }
 
   deleteEvent() {

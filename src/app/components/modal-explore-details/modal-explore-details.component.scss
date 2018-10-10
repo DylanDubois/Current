@@ -39,6 +39,7 @@
     height: 87%;
     overflow: scroll;
     .event-details {
+        max-height: 430px;
         .publisher-header {
             img {
                 height: 30px;
@@ -98,19 +99,29 @@
         font-family: $secondary-font!important;
     }
 
-    p{
-        font-family: $secondary-font!important;
-        max-height: 100px;
-        overflow: scroll;
-        padding: .2em;
-        border: 1px solid white;
-        font-size: 1.2em;
-        min-height: 70px;
-    }
-
     .comments-list {
-        height: 300px;
+        min-height: 300px;
+        max-height: 500px;
         overflow: scroll;
+
+        .explore-comment {
+            border-bottom: 1px solid $primary-light;
+            font-weight: 100;
+            padding: .5em;
+            h3 {
+                color: $primary-dark;
+                font-size: 1em;
+                font-family: $secondary-font;
+            }
+
+            p {
+                margin: 4px 0;
+                color: $primary-dark;
+                font-size: 1em;
+                font-family: $secondary-font;
+                padding: 0;
+            }
+        }
     }
 
     .new-comment-box{
