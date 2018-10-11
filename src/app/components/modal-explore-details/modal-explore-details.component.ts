@@ -70,6 +70,10 @@ export class ModalExploreDetailsComponent implements OnInit {
 
   postComment() {
     if (!this.newComment.text) return;
+    if (!this.user){
+      alert("Sign-in to comment");
+      return;
+    }
     this.time = Date.now();
     this.newComment.postTime = this.time;
     this.newComment.publisher = {name: this.user.displayName, photoURL: this.user.photoURL, uid: this.user.uid};

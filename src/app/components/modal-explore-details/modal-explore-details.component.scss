@@ -112,6 +112,7 @@
                 color: $primary-dark;
                 font-size: 1em;
                 font-family: $secondary-font;
+                display: inline;
             }
 
             p {
@@ -120,6 +121,14 @@
                 font-size: 1em;
                 font-family: $secondary-font;
                 padding: 0;
+            }
+
+            i {
+                color: gold;
+                position: relative;
+                top: 2px;
+                font-size: 1em;
+                display: inline;
             }
         }
     }
@@ -157,13 +166,17 @@
  }
 
  .comment-btn {
-     font-size: 1.5em;
-     width: 100%;
-     background: $primary-light;
-     color: white;
-     cursor: pointer;
-     border: none;
-     padding: .5em;
+    background: $primary-light;
+    padding: .5em 1.5em;
+    margin: .5em 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    position: relative;
+    font-size: 1.5em;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.4);
+    transition: $button-transition;
  }
 
 .liked-event {
@@ -195,6 +208,11 @@
         i{
             color: $primary-light;
         }
+    }
+
+    .comment-btn:hover {
+        background: white;
+        color: $primary-light;
     }
 
     .event-body-content {

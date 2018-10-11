@@ -34,10 +34,11 @@
               <a (click)="scrollToComments(addComment)">
                   <i class="material-icons">add</i>
                 </a>
-              <h1>Comments</h1>
+              <h1 style="padding-left: 36px;">Comments</h1>
             </div>
         <div class="comments-list">
           <div class="explore-comment" *ngFor="let comment of comments">
+            <i *ngIf="event.publisher.uid == comment.publisher.uid" class="material-icons">stars</i>
             <h3>{{ comment.publisher.name }} - {{convertStartToString(comment.postTime)}}</h3>
             <p>{{ comment.text }}</p>
           </div>
