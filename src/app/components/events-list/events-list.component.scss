@@ -10,6 +10,7 @@
     justify-content: center;
     background: $primary-light;
     box-shadow: 0 3px 15px rgba(0,0,0,0.4);
+    border-bottom: 2px solid white;
     padding: .5em;
     display: grid;
     grid-auto-columns: 1fr 1fr 2fr 1fr 1fr;

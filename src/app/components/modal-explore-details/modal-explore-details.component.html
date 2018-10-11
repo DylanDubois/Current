@@ -30,16 +30,19 @@
         </button>
       </div>
       <div class="explore-comments">
-        <div class="comments-list">
           <div class="modal-header">
-            <h1>Comments</h1>
-          </div>
+              <a (click)="scrollToComments(addComment)">
+                  <i class="material-icons">add</i>
+                </a>
+              <h1>Comments</h1>
+            </div>
+        <div class="comments-list">
           <div class="explore-comment" *ngFor="let comment of comments">
             <h3>{{ comment.publisher.name }} - {{convertStartToString(comment.postTime)}}</h3>
             <p>{{ comment.text }}</p>
           </div>
         </div>
-        <div class="new-comment-box">
+        <div #addComment class="new-comment-box">
           <textarea rows="5" required [(ngModel)]="newComment.text" name="description" maxlength="500" placeholder="500 characters or less"></textarea>
           <button class="comment-btn" (click)="postComment()">
             Comment

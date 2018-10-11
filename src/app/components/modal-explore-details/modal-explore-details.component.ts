@@ -30,7 +30,7 @@ export class ModalExploreDetailsComponent implements OnInit {
   ngOnInit() {
     this.commentsObservable = this.fbd.getExploreComments(this.event.start).valueChanges().subscribe((comments) => {
         this.comments = comments;
-        console.log(comments);
+        this.comments.reverse();
     });
     this.userCanDelete = this.user ? this.user.uid == this.event.publisher.uid : false;
     this.userCanLike = this.user && this.event['eventLikers'].includes(this.user.uid) ? false : true;
@@ -47,7 +47,7 @@ export class ModalExploreDetailsComponent implements OnInit {
   }
 
   ngOnDestroy(){
-    this.commentsObservable.unscribe();
+    this.commentsObservable.unsubscribe();
   }
 
   deleteEvent() {
@@ -59,11 +59,11 @@ export class ModalExploreDetailsComponent implements OnInit {
 
   likeEvent() {
     if (this.userCanLike){
-      this.fbd.likeEvent(this.event, this.user.uid );
+      this.fbd.likeExploreEvent(this.event, this.user.uid );
       this.userCanLike = false;
     }
     else if (this.user && this.event.publisher.uid != this.user.uid) {
-      this.fbd.dislikeEvent(this.event, this.user.uid);
+      this.fbd.dislikeExploreEvent(this.event, this.user.uid);
       this.userCanLike = true;
     }
   }
@@ -78,5 +78,9 @@ export class ModalExploreDetailsComponent implements OnInit {
       text: '',
       publisher: {},
       postTime: 1};
+  }
+
+  scrollToComments(element){
+    element.scrollIntoView(false);
   }
 }

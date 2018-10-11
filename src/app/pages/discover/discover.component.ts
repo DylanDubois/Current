@@ -38,7 +38,7 @@ export class DiscoverComponent implements OnInit {
   userLogout() {
     if (confirm("Are you sure you want to logout?")){
       this.user = null;
-      this.auth.logout('discover');
+      this.auth.logout('explore');
     }
   }
 

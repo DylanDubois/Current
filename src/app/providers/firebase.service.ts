@@ -141,6 +141,37 @@ export class FirebaseService {
 
     }
 
+    likeExploreEvent(event, uid){
+        let eventObs = this.afd.object(`/explore/${event.start}`).valueChanges().subscribe((eventOb)=>{
+            if (eventOb && !eventOb['eventLikers'].includes(uid)) {
+                eventOb['eventLikers'].push(uid);
+                this.afd.object(`/explore/${event.start}`).update({eventLikers: eventOb['eventLikers']});
+                eventObs.unsubscribe();
+            }
+            else {
+                eventObs.unsubscribe();
+            }
+            
+        });
+    }
+
+    dislikeExploreEvent(event, uid){
+        let eventObs = this.afd.object(`/explore/${event.start}`).valueChanges().subscribe((eventOb)=>{
+            if (eventOb && eventOb['eventLikers'].includes(uid)) {
+                eventOb['eventLikers'] = eventOb['eventLikers'].filter((likerId) => {
+                    return likerId != uid;
+                });
+                this.afd.object(`/explore/${event.start}`).update({eventLikers: eventOb['eventLikers']});
+                eventObs.unsubscribe();
+            }
+            else {
+                eventObs.unsubscribe();
+            }
+            
+        });
+
+    }
+
     postExploreComment(comment, eventId) {
         this.afd.list(`/exploreComments/${eventId}`).push(comment);
     }
