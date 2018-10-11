@@ -160,6 +160,25 @@ app-modal-event-details{
 
 }
 
+app-modal-explore-details{
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    height: 260%;
+    z-index: 10;
+    .modal-body{
+        height: 750px;
+        width: 100%;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -25%);
+            position: absolute;
+        background: $primary-dark;
+    }
+
+}
+
 app-modal-event-creation{
     background: rgba(0,0,0,0.3);
     width: 100%;
@@ -169,6 +188,24 @@ app-modal-event-creation{
     z-index: 10;
     .modal-body{
         height: 650px;
+        width: 100%;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -25%);
+            position: absolute;
+        background: $primary-dark;
+    }
+}
+
+app-modal-discover-creation{
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    height: 150%;
+    z-index: 10;
+    .modal-body{
+        height: 550px;
         width: 100%;
             top: 35%;
             left: 50%;
@@ -314,11 +351,38 @@ app-modal-event-creation{
     
     }
 
+    app-modal-explore-details{
+        height: 130%;
+    
+        .modal-body{
+            height: 550px;
+            width: 80%;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -25%);
+            position: absolute;
+        }
+    
+    }
+
     app-modal-event-creation{
         height: 130%;
     
         .modal-body{
             height: 650px;
+            width: 500px;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -25%);
+            position: absolute;
+        }
+    
+    }
+    app-modal-discover-creation{
+        height: 130%;
+    
+        .modal-body{
+            height: 550px;
             width: 500px;
             top: 35%;
             left: 50%;

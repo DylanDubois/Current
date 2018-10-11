@@ -21,6 +21,9 @@ import { ModalSigninComponent } from './components/modal-signin/modal-signin.com
 import { ModalEventDetailsComponent } from './components/modal-event-details/modal-event-details.component';
 import { ModalEventCreationComponent } from './components/modal-event-creation/modal-event-creation.component';
 import { FormsModule } from '@angular/forms';
+import { DiscoverListComponent } from './components/discover-list/discover-list.component';
+import { ModalDiscoverCreationComponent } from './components/modal-discover-creation/modal-discover-creation.component';
+import { ModalExploreDetailsComponent } from './components/modal-explore-details/modal-explore-details.component';
 
 export const firebaseConfig = {
   production: true,
@@ -38,7 +41,7 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'events',      component: EventsComponent },
   { path: 'contact',      component: ContactComponent },
-  { path: 'discover',      component: DiscoverComponent },
+  { path: 'explore',      component: DiscoverComponent },
 ];
 
 
@@ -54,7 +57,10 @@ const appRoutes: Routes = [
     DiscoverComponent,
     ModalSigninComponent,
     ModalEventDetailsComponent,
-    ModalEventCreationComponent
+    ModalEventCreationComponent,
+    DiscoverListComponent,
+    ModalDiscoverCreationComponent,
+    ModalExploreDetailsComponent
   ],
   imports: [
     BrowserModule,

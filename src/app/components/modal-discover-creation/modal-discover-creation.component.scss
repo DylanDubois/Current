@@ -44,6 +44,7 @@
         input {
             font-size: 1em;
             color: $primary-light;
+            font-family: $secondary-font;
             margin: .5em 0;
             padding: .5em;
         }
@@ -51,7 +52,6 @@
         .name-form {
             input {
                 width: 45%;
-                font-family: $secondary-font;
             }
         }
 
