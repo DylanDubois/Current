@@ -65,8 +65,8 @@ export class DiscoverListComponent implements OnInit {
       this.currentFilter = filter;
       this.filteredEvents = this.events.slice(0);
       this.filteredEvents = this.filteredEvents.sort((a, b) => {
-        if (a[filter] < b[filter]) return -1;
-        if (a[filter] > b[filter]) return 1;
+        if (a['eventLikers'].length / a['goal'] > b['eventLikers'].length / b['goal']) return -1;
+        if ((a['eventLikers'].length / a['goal'] < b['eventLikers'].length / b['goal'])) return 1;
         return 0;
       });
     }
