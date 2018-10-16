@@ -24,6 +24,7 @@ import { FormsModule } from '@angular/forms';
 import { DiscoverListComponent } from './components/discover-list/discover-list.component';
 import { ModalDiscoverCreationComponent } from './components/modal-discover-creation/modal-discover-creation.component';
 import { ModalExploreDetailsComponent } from './components/modal-explore-details/modal-explore-details.component';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 
 export const firebaseConfig = {
   production: true,
@@ -73,7 +74,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes
     ),
-    FormsModule
+    FormsModule,
+    AgmSnazzyInfoWindowModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
