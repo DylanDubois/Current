@@ -95,13 +95,32 @@ export class HomeComponent implements OnInit {
   }
 
   filterByType(type) {
-    if (type == 'All'){
+    this.sortByLikes = false;
+    this.searchKeys = '';
+    if (type == 'All') {
       this.filteredEvents = null;
       return;
     }
     this.filteredEvents = this.allEvents.slice(0);
     this.filteredEvents = this.filteredEvents.filter((event) => {
       return event['type'] == type;
+    });
+  }
+
+  searchKeyPress(event) {
+    if (event.keyCode === 13) this.eventSearch();
+  }
+
+  eventSearch() {
+    this.sortByLikes = false;
+    this.currentFilter = 'All';
+    if (this.searchKeys == '') {
+      this.filteredEvents = null;
+      return;
+    }
+    this.filteredEvents = this.allEvents.slice(0);
+    this.filteredEvents = this.filteredEvents.filter((event) => {
+      return event['name'].toLowerCase().includes(this.searchKeys.toLowerCase()) || event['description'].toLowerCase().includes(this.searchKeys.toLowerCase());
     });
   }
 

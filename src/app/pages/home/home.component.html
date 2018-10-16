@@ -17,7 +17,7 @@
       </ul>
     </div> -->
     <div class="nav-search" *ngIf="displayEventSearch">
-      <input type="text" [(ngModel)]="searchKeys" maxlength="25" placeholder="Search">
+      <input type="text" [(ngModel)]="searchKeys" maxlength="25" placeholder="Search" (keydown)="searchKeyPress($event)">
       <i class="material-icons" (click)="eventSearch()">
         search
       </i>
