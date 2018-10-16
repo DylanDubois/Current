@@ -26,12 +26,12 @@
       <i class="material-icons" (click)="addEvent()">
         add
       </i>
-      <i [ngClass]="currentFilter == 'likes' ? 'selected-filter' : ''" class="material-icons" (click)="sortBy('likes')">
+      <i [ngClass]="sortByLikes === true ? 'selected-filter' : ''" class="material-icons" (click)="sortByLikesFilter()">
         whatshot
       </i>
-      <i [ngClass]="currentFilter == 'type' ? 'selected-filter' : ''" class="material-icons" (click)="sortBy('type')">
-        class
-      </i>
+      <select [(ngModel)]="currentFilter" name="type">
+          <option *ngFor="let type of eventTypes" [ngValue]="type">{{ type }}</option>
+        </select>
     </div>
     <div class="signin-nav">
       <ul *ngIf="!user; else logout">
@@ -64,7 +64,7 @@
   </section>
 
   <section class="list-container">
-    <app-events-list [events]="allEvents" header="Top Events" [user]="user" (selectedEvent)="eventSelected($event)">
+    <app-events-list [events]="filteredEvents ? filteredEvents : allEvents" header="Top Events" [user]="user" (selectedEvent)="eventSelected($event)">
     </app-events-list>
   </section>
 

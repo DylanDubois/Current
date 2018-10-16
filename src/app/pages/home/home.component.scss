@@ -52,6 +52,18 @@
         cursor: pointer;
     }
 
+    select {
+        background: white;
+        color: $primary-light;
+        font-size: 1.5em;
+        float: left;
+        padding: .2em;
+        font-weight: 100;
+        position: relative;
+        top: 5px;
+        font-family: $secondary-font;
+    }
+
     .selected-filter {
         color: $primary-light;
         background: white;
