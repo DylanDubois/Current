@@ -29,7 +29,7 @@
       <i [ngClass]="sortByLikes === true ? 'selected-filter' : ''" class="material-icons" (click)="sortByLikesFilter()">
         whatshot
       </i>
-      <select [(ngModel)]="currentFilter" name="type">
+      <select [(ngModel)]="currentFilter" name="type" (ngModelChange)="filterByType($event)">
           <option *ngFor="let type of eventTypes" [ngValue]="type">{{ type }}</option>
         </select>
     </div>

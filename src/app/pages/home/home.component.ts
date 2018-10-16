@@ -94,6 +94,17 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  filterByType(type) {
+    if (type == 'All'){
+      this.filteredEvents = null;
+      return;
+    }
+    this.filteredEvents = this.allEvents.slice(0);
+    this.filteredEvents = this.filteredEvents.filter((event) => {
+      return event['type'] == type;
+    });
+  }
+
 }
 
 export interface Event {
