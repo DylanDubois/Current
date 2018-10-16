@@ -22,7 +22,8 @@ export class ModalEventCreationComponent implements OnInit {
   likes: 1,
   publisher: {},
   comments: [],
-  type: 'Academic'
+  type: 'Academic',
+  eventLikers: []
   }
 
   eventTypes = ['Academic', 'Entertainment', 'Social', 'Other'];

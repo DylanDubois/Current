@@ -18,6 +18,13 @@ export class HomeComponent implements OnInit {
 
   user;
 
+  filteredEvents = null;
+  currentFilter: string = '';
+  searchKeys: string = "";
+
+  displayEventAdd = false;
+  displayEventSearch = true;
+
   selectedEvent: any;
   fbObservable: any;
   displayEvent: boolean;
@@ -53,11 +60,20 @@ export class HomeComponent implements OnInit {
     this.displaySignin = false;
     this.displayDropdown = false;
     this.displayEvent = false;
+    this.displayEventAdd = false;
   }
 
   eventSelected(event) {
     this.selectedEvent = event;
     this.displayEvent = true;
+  }
+
+  addEvent() {
+    if (!this.user){
+      alert("Sign-in to post events!");
+      return;
+    }
+    this.displayEventAdd = true;
   }
 
 }

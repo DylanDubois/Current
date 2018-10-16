@@ -50,6 +50,7 @@ header {
 
 .map-container, .list-container {
     margin-top: 1em;
+    z-index: 0;
 }
 
 
@@ -58,6 +59,9 @@ header {
     background: $primary-light;
     margin-top: -1em;
     padding: .7em 0;
+    z-index: 10;
+    position: sticky;
+    top: 0;
     ul {
         list-style: none;
         display: inline;
@@ -93,6 +97,7 @@ header {
             .dropdown-list {
                 z-index: 10;
                 background: $primary-light;
+                margin-top: 3.9em!important;
                 li {
                     display: list-item;
                     font-size: 1.5em;
