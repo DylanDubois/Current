@@ -4,7 +4,7 @@
     [longitude]="marker.lng" 
     (markerClick)="markerClicked(marker)"
     [iconUrl]="markerIcon">
-        <agm-snazzy-info-window *ngIf="marker.eventLikers.length >= 3" 
+        <agm-snazzy-info-window *ngIf="marker['eventLikers'].length >= 3" 
             [maxWidth]="200" 
             [isOpen]="true"
             [openOnMarkerClick]="false"

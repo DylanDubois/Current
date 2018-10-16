@@ -3,7 +3,7 @@
         add
     </i>
     <i *ngIf="header == 'Events'" [ngClass]="currentFilter == 'likes' ? 'selected-filter' : ''" class="material-icons" style="grid-column: 2/3" (click)="sortBy('likes')">
-            thumb_up
+            whatshot
         </i>
   <h1 [ngStyle]="{'grid-column' : (header === 'Events') ? '3/5' : '1/7'}">{{header}}</h1>
   <i *ngIf="header == 'Events'" [ngClass]="currentFilter == 'type' ? 'selected-filter' : ''" class="material-icons" style="grid-column: 5/6" (click)="sortBy('type')">
