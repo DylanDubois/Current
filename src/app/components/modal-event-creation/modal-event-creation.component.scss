@@ -111,4 +111,8 @@
     .post-btn {
         transition: $button-transition;
     }
+
+    agm-map {
+        height: 500px!important;
+    } 
 }

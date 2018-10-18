@@ -381,6 +381,10 @@ app-modal-discover-creation{
             left: 50%;
             transform: translate(-50%, -25%);
             position: absolute;
+
+            agm-map {
+                height: 500px!important;
+            } 
         }
     
     }
