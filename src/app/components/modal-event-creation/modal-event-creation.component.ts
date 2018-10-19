@@ -33,6 +33,7 @@ export class ModalEventCreationComponent implements OnInit {
   constructor(private fbd : FirebaseService, private auth : AuthService) { }
 
   ngOnInit() {
+    document.getElementById("modal").scrollIntoView(false);
   }
 
   postEvent() {

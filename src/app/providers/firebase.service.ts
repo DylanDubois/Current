@@ -172,11 +172,11 @@ export class FirebaseService {
 
     }
 
-    postExploreComment(comment, eventId) {
-        this.afd.list(`/exploreComments/${eventId}`).push(comment);
+    postComment(comment, eventId) {
+        this.afd.list(`/comments/${eventId}`).push(comment);
     }
 
-    getExploreComments(eventId) {
-        return this.afd.list(`/exploreComments/${eventId}`);
+    getComments(eventId) {
+        return this.afd.list(`/comments/${eventId}`);
     }
 }

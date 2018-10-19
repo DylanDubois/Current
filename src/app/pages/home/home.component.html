@@ -75,7 +75,7 @@
     <h5>Current &copy; 2018</h5>
   </div>
 
-  <app-modal-event-details *ngIf="displayEvent" (close)="onClose($event)" [user]="user" [event]="selectedEvent"></app-modal-event-details>
+  <app-modal-explore-details *ngIf="displayEvent" (close)="onClose($event)" [user]="user" [event]="selectedEvent"></app-modal-explore-details>
   <app-modal-signin *ngIf="displaySignin" (close)="onClose($event)">
   </app-modal-signin>
   <app-modal-event-creation *ngIf="displayEventAdd" [user]="user" (close)="onClose($event)"></app-modal-event-creation>

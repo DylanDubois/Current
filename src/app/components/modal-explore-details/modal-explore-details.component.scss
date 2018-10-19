@@ -217,7 +217,7 @@
 
     .event-body-content {
         display: grid;
-        grid-auto-columns: 2fr 2fr;
+        grid-template-columns: 2fr 2fr;
         grid-gap: 1em;
 
         .event-details {

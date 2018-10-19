@@ -225,7 +225,7 @@ app-modal-discover-creation{
 @media only screen and (min-width: 700px) {
     .grid {
         display: grid;
-        grid-auto-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-gap: 1em;
     }
 
@@ -363,7 +363,7 @@ app-modal-discover-creation{
         .modal-body{
             height: 550px;
             width: 80%;
-            top: 20%;
+            top: 70vh;
             left: 50%;
             transform: translate(-50%, -25%);
             position: absolute;

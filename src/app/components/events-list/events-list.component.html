@@ -17,4 +17,3 @@
       <p>{{ convertStartToString(event.start)}} - {{ event.type }} - {{event['eventLikers'].length}} {{event['eventLikers'].length == 1 ? 'like' : 'likes'}}</p>
   </div>
 </div>
-<app-modal-event-creation *ngIf="displayEventAdd" [user]="user" (close)="onClose($event)"></app-modal-event-creation>
