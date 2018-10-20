@@ -31,15 +31,19 @@ export class HomeComponent implements OnInit {
   sortByLikes: boolean = false;
 
   displayEventAdd = false;
-  displayEventSearch = true;
+  displayEventSearch = false;
 
   selectedEvent: any;
   fbObservable: any;
   displayEvent: boolean;
 
+  mobileDevice = false;
+
   eventTypes = ['All', 'Academic', 'Conditional', 'Entertainment', 'Social', 'Other'];
 
   constructor(private fbd: FirebaseService, public auth: AuthService, private cookieService : CookieService) {
+    this.mobileDevice = screen.width <= 700;
+    console.log(this.mobileDevice);
   }
 
   ngOnInit() {

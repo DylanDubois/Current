@@ -114,6 +114,11 @@ header {
     }
 }
 
+.mobile {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
 .footer {
     text-align: center;
     padding: 1.5em;

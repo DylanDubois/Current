@@ -72,6 +72,26 @@
     }
 }
 
+.mobile {
+    .filter-options {
+        grid-column: 1/2;
+        display: grid;
+        grid-template-columns: 1fr 1fr 2fr 1fr;
+        position: relative;
+        top: -5px;
+        grid-gap: .5em;
+        i {
+            margin: 0;
+            float: none;
+            top: 10px;
+        }
+
+        select {
+            float: none;
+        }
+    }
+}
+
 .list-container {
     background: white; 
     height: 500px;
