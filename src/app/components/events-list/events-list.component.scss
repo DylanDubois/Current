@@ -59,7 +59,7 @@
         }
 
         .progress-background{
-            width: 100%;
+            grid-column: 1/7;
             background: lightgray;
         }
 
@@ -84,7 +84,6 @@
         .progress-background{
             width: 100%;
             background: lightgray;
-            grid-column: 4/6;
         }
 
         .progress-blue {

@@ -16,10 +16,12 @@
           <h1>{{ event.publisher.name }}</h1>
         </div>
         <h2>Posted {{convertStartToString(event.start)}}</h2>
-        <!-- <h2>Progress:</h2>
-        <div class="progress-background">
-          <div class="progress-blue" style="height:24px;" [style.width.%]="(event['eventLikers'].length / event.goal) * 100"></div>
-        </div> -->
+        <div *ngIf="event['type'] == 'Conditional'" class="event-progress">
+            <h2>Progress:</h2>
+            <div class="progress-background">
+              <div class="progress-blue" style="height:24px;" [style.width.%]="(event['eventLikers'].length / event['goal']) * 100"></div>
+            </div>
+        </div>
         <h2>Description:</h2>
         <p>{{ event.description }}</p>
 

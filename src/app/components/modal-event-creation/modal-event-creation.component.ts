@@ -23,10 +23,11 @@ export class ModalEventCreationComponent implements OnInit {
   publisher: {},
   comments: [],
   type: 'Academic',
-  eventLikers: []
+  eventLikers: [],
+  goal: 1
   }
 
-  eventTypes = ['Academic', 'Entertainment', 'Social', 'Other'];
+  eventTypes = ['Academic', 'Conditional', 'Entertainment', 'Social', 'Other'];
 
   userCanDelete: boolean = false;
 

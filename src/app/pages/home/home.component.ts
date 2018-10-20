@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
   fbObservable: any;
   displayEvent: boolean;
 
-  eventTypes = ['All', 'Academic', 'Entertainment', 'Social', 'Other'];
+  eventTypes = ['All', 'Academic', 'Conditional', 'Entertainment', 'Social', 'Other'];
 
   constructor(private fbd: FirebaseService, public auth: AuthService) {
   }
