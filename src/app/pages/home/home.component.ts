@@ -1,6 +1,7 @@
 import { AuthService } from './../../providers/auth.service';
 import { FirebaseService } from './../../providers/firebase.service';
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  header;
+  headerCookie = 0;
   headerImages = 
-  ["url('https://images.pexels.com/photos/325521/pexels-photo-325521.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')",
+  ["url('https://images.pexels.com/photos/1387174/pexels-photo-1387174.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')",
+  "url('https://images.pexels.com/photos/325521/pexels-photo-325521.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')",
   "url('https://images.pexels.com/photos/1157557/pexels-photo-1157557.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')",
   "url('https://images.pexels.com/photos/433452/pexels-photo-433452.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')",
-  "url('https://images.pexels.com/photos/1387174/pexels-photo-1387174.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')"];
+  ];
   allEvents: any;
 
   displaySignin: boolean = false;
@@ -37,12 +39,13 @@ export class HomeComponent implements OnInit {
 
   eventTypes = ['All', 'Academic', 'Conditional', 'Entertainment', 'Social', 'Other'];
 
-  constructor(private fbd: FirebaseService, public auth: AuthService) {
+  constructor(private fbd: FirebaseService, public auth: AuthService, private cookieService : CookieService) {
   }
 
   ngOnInit() {
-    this.header = document.getElementById("headerBackDrop");
-    this.header.style.backgroundImage = this.headerImages[Math.floor(Math.random() * this.headerImages.length)];
+    this.getHeaderCookie();
+    console.log(this.headerCookie);
+    document.getElementById("headerBackDrop").style.backgroundImage = this.headerImages[this.headerCookie % this.headerImages.length];
     this.fbObservable = this.fbd.getEvents().valueChanges().subscribe(data => {
       this.allEvents = data;
       this.allEvents.reverse();
@@ -51,6 +54,16 @@ export class HomeComponent implements OnInit {
       if (auth)
         this.user = auth;
     });
+  }
+
+  getHeaderCookie(){
+    if (!this.cookieService.check('header')){
+      this.cookieService.set('header', '0');
+      this.headerCookie = 0;
+      return;
+    }
+    this.headerCookie = +this.cookieService.get('header');
+    this.cookieService.set('header', String(this.headerCookie + 1));
   }
 
   userLogout() {

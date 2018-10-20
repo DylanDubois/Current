@@ -25,6 +25,7 @@ import { DiscoverListComponent } from './components/discover-list/discover-list.
 import { ModalDiscoverCreationComponent } from './components/modal-discover-creation/modal-discover-creation.component';
 import { ModalExploreDetailsComponent } from './components/modal-explore-details/modal-explore-details.component';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
+import { CookieService } from 'ngx-cookie-service';
 
 export const firebaseConfig = {
   production: true,
@@ -77,7 +78,7 @@ const appRoutes: Routes = [
     FormsModule,
     AgmSnazzyInfoWindowModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
