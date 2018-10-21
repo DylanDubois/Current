@@ -41,7 +41,7 @@
 
 .events-list {
     overflow: scroll;
-    max-height: 92vh;
+    max-height: 88.5%;
 
     .list-item {
         padding: .5em 1em;
@@ -116,6 +116,7 @@
     }
 
     .events-list {
-        max-height: 89%;
+        max-height: 82vh!important;
+        overflow: scroll;
     }
 }

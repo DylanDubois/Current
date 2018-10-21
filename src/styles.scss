@@ -42,9 +42,12 @@ header {
     }
 }
 
-.list-container {
-    background: white; 
-    height: 500px;
+app-events-list {
+    max-height: 100%;
+    .list-container {
+        background: white; 
+        height: 500px;
+    }
 }
 
 .map-container, .list-container {
