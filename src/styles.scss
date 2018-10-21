@@ -37,7 +37,6 @@ header {
     align-content: center;
     font-size: 2em;
     padding: 2em 0;
-
     h1 {
         text-shadow: 4px 2px $primary-light;
     }
@@ -50,6 +49,7 @@ header {
 
 .map-container, .list-container {
     margin-top: 1em;
+    z-index: 0;
 }
 
 
@@ -58,6 +58,10 @@ header {
     background: $primary-light;
     margin-top: -1em;
     padding: .7em 0;
+    z-index: 5;
+    position: sticky;
+    top: 0;
+    border-bottom: 2px solid white;
     ul {
         list-style: none;
         display: inline;
@@ -93,6 +97,7 @@ header {
             .dropdown-list {
                 z-index: 10;
                 background: $primary-light;
+                margin-top: 3.9em!important;
                 li {
                     display: list-item;
                     font-size: 1.5em;
@@ -107,6 +112,11 @@ header {
             }
         }
     }
+}
+
+.mobile {
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 .footer {
@@ -129,6 +139,7 @@ app-modal-signin{
     position: absolute;
     top: 0; left: 0;
     height: 240%;
+    z-index: 10;
     .modal-body{
         height: 425px;
         width: 100%;
@@ -219,7 +230,7 @@ app-modal-discover-creation{
 @media only screen and (min-width: 700px) {
     .grid {
         display: grid;
-        grid-auto-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-gap: 1em;
     }
 
@@ -324,12 +335,12 @@ app-modal-discover-creation{
     }
 
     app-modal-signin{
-        height: 130%;
+        height: 200%;
     
         .modal-body{
             height: 400px;
             width: 500px;
-            top: 35%;
+            top: 20%;
             left: 50%;
             transform: translate(-50%, -25%);
             position: absolute;
@@ -338,12 +349,12 @@ app-modal-discover-creation{
     }
 
     app-modal-event-details{
-        height: 130%;
+        height: 200%;
     
         .modal-body{
             height: 450px;
             width: 500px;
-            top: 35%;
+            top: 20%;
             left: 50%;
             transform: translate(-50%, -25%);
             position: absolute;
@@ -352,12 +363,12 @@ app-modal-discover-creation{
     }
 
     app-modal-explore-details{
-        height: 130%;
+        height: 200%;
     
         .modal-body{
             height: 550px;
             width: 80%;
-            top: 35%;
+            top: 70vh;
             left: 50%;
             transform: translate(-50%, -25%);
             position: absolute;
@@ -366,25 +377,29 @@ app-modal-discover-creation{
     }
 
     app-modal-event-creation{
-        height: 130%;
+        height: 200%;
     
         .modal-body{
             height: 650px;
             width: 500px;
-            top: 35%;
+            top: 20%;
             left: 50%;
             transform: translate(-50%, -25%);
             position: absolute;
+
+            agm-map {
+                height: 500px!important;
+            } 
         }
     
     }
     app-modal-discover-creation{
-        height: 130%;
+        height: 200%;
     
         .modal-body{
             height: 550px;
             width: 500px;
-            top: 35%;
+            top: 20%;
             left: 50%;
             transform: translate(-50%, -25%);
             position: absolute;

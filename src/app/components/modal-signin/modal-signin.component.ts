@@ -17,6 +17,7 @@ export class ModalSigninComponent implements OnInit {
   constructor(public auth : AuthService, private router : Router, private afd : FirebaseService) { }
 
   ngOnInit() {
+    document.getElementById("modal").scrollIntoView(false);
   }
 
   onClose() {

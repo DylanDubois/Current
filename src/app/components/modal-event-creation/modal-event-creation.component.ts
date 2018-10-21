@@ -22,16 +22,19 @@ export class ModalEventCreationComponent implements OnInit {
   likes: 1,
   publisher: {},
   comments: [],
-  type: 'Academic'
+  type: 'Academic',
+  eventLikers: [],
+  goal: 1
   }
 
-  eventTypes = ['Academic', 'Entertainment', 'Social', 'Other'];
+  eventTypes = ['Academic', 'Conditional', 'Entertainment', 'Social', 'Other'];
 
   userCanDelete: boolean = false;
 
   constructor(private fbd : FirebaseService, private auth : AuthService) { }
 
   ngOnInit() {
+    document.getElementById("modal").scrollIntoView(false);
   }
 
   postEvent() {

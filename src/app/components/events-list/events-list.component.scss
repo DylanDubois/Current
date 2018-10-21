@@ -12,22 +12,9 @@
     box-shadow: 0 3px 15px rgba(0,0,0,0.4);
     border-bottom: 2px solid white;
     padding: .5em;
-    display: grid;
-    grid-auto-columns: 1fr 1fr 2fr 1fr 1fr;
-    grid-gap: .5em;
     h1 {
         font-size: 2em;
-        display: inline;
-        display: grid;
-        grid-column: 3/5;
-    }
-
-    i {
-        font-size: 1.75em;
-        margin-top: 4px;
-        cursor: pointer;
-        padding: 4px;
-        display: grid;
+        font-weight: 100;
     }
 }
 
@@ -54,7 +41,7 @@
 
 .events-list {
     overflow: scroll;
-    max-height: 430px;
+    max-height: 92vh;
 
     .list-item {
         padding: .5em 1em;
@@ -70,10 +57,40 @@
             font-family: $secondary-font;
             font-size: .75em;
         }
+
+        .progress-background{
+            grid-column: 1/7;
+            background: lightgray;
+        }
+
+        .progress-blue {
+            background: $primary-light;
+        }
     }
 }
 
 @media only screen and (min-width: 700px) {
+    .list-item {
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+        h2 {
+            grid-column: 1/4;
+        }
+
+        p {
+            grid-column: 1/4;
+        }
+
+        .progress-background{
+            width: 100%;
+            background: lightgray;
+        }
+
+        .progress-blue {
+            background: $primary-light;
+        }
+    }
+
     .list-item:hover {
         background: $primary-dark;
         transform: scaleY(1.1);
@@ -86,5 +103,19 @@
         p {
             color: white!important;
         }
+
+        .progress-background{
+            width: 100%;
+            background: lightgray;
+            grid-column: 4/6;
+        }
+
+        .progress-blue {
+            background: $primary-light;
+        }
+    }
+
+    .events-list {
+        max-height: 89%;
     }
 }

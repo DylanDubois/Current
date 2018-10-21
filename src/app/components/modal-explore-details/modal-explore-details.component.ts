@@ -23,12 +23,15 @@ export class ModalExploreDetailsComponent implements OnInit {
     publisher: {},
     postTime: 1
   }
+
   constructor(private fbd : FirebaseService) {
     this.time = Date.now();
    }
 
   ngOnInit() {
-    this.commentsObservable = this.fbd.getExploreComments(this.event.start).valueChanges().subscribe((comments) => {
+    document.getElementById("modal").scrollIntoView(false);
+
+    this.commentsObservable = this.fbd.getComments(this.event.start).valueChanges().subscribe((comments) => {
         this.comments = comments;
         this.comments.reverse();
     });
@@ -52,18 +55,19 @@ export class ModalExploreDetailsComponent implements OnInit {
 
   deleteEvent() {
     if (confirm("Are you sure you want to delete this event?")){
-      this.fbd.deleteExploreEvent(this.event, this.user.uid);
+      console.log(this.user);
+      this.fbd.deleteEvent(this.event, this.user.uid);
       this.onClose();
     }
   }
 
   likeEvent() {
     if (this.userCanLike){
-      this.fbd.likeExploreEvent(this.event, this.user.uid );
+      this.fbd.likeEvent(this.event, this.user.uid );
       this.userCanLike = false;
     }
     else if (this.user && this.event.publisher.uid != this.user.uid) {
-      this.fbd.dislikeExploreEvent(this.event, this.user.uid);
+      this.fbd.dislikeEvent(this.event, this.user.uid);
       this.userCanLike = true;
     }
   }
@@ -77,7 +81,7 @@ export class ModalExploreDetailsComponent implements OnInit {
     this.time = Date.now();
     this.newComment.postTime = this.time;
     this.newComment.publisher = {name: this.user.displayName, photoURL: this.user.photoURL, uid: this.user.uid};
-    this.fbd.postExploreComment(this.newComment, this.event.start);
+    this.fbd.postComment(this.newComment, this.event.start);
     this.newComment = {    
       text: '',
       publisher: {},

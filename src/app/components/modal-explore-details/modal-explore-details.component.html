@@ -1,5 +1,5 @@
 <div class="event-details-modal">
-  <div class="modal-body">
+  <div id="modal" class="modal-body">
     <div class="modal-header">
       <a *ngIf="userCanDelete" (click)="deleteEvent()" class="delete-btn">
         <i class="material-icons">delete</i>
@@ -16,9 +16,11 @@
           <h1>{{ event.publisher.name }}</h1>
         </div>
         <h2>Posted {{convertStartToString(event.start)}}</h2>
-        <h2>Progress:</h2>
-        <div class="progress-background">
-          <div class="progress-blue" style="height:24px;" [style.width.%]="(event['eventLikers'].length / event.goal) * 100"></div>
+        <div *ngIf="event['type'] == 'Conditional'" class="event-progress">
+            <h2>Progress:</h2>
+            <div class="progress-background">
+              <div class="progress-blue" style="height:24px;" [style.width.%]="(event['eventLikers'].length / event['goal']) * 100"></div>
+            </div>
         </div>
         <h2>Description:</h2>
         <p>{{ event.description }}</p>

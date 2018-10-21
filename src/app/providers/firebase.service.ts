@@ -50,30 +50,6 @@ export class FirebaseService {
         });
     }
 
-        addExploreEvent(event, uid) {
-        let userObs = this.afd.object(`/users/${uid}`).valueChanges().subscribe((user)=>{
-            if (user && (!user['posts'] || user['posts'].length < 2)) {
-                event['eventLikers'] = [];
-                event['eventLikers'].push(uid);
-                this.afd.object(`/explore/${event.start}`).set(event);
-                if (!user['posts']){
-                    user['posts'] = [];
-                    user['posts'].push(event.start);
-                }
-                else {
-                    user['posts'].push(event.start);
-                }
-                this.afd.object(`/users/${uid}`).update({posts: user['posts']});
-                userObs.unsubscribe();
-            }
-            else {
-                alert("You have have posted too many events.");
-                userObs.unsubscribe();
-            }
-            
-        });
-    }
-
     addUser(user) {
         this.afd.object(`/users/${user.user.uid}`).update({uid: user.user.uid});
     }
@@ -84,22 +60,6 @@ export class FirebaseService {
                 let tmpPosts = user['posts'].splice(0);
                 tmpPosts = tmpPosts.filter((post) => {return post != event.start});
                 this.afd.object(`/events/${event.start}`).remove();
-                this.afd.object(`/users/${uid}`).update({posts: tmpPosts});
-                userObs.unsubscribe();
-            }
-            else {
-                userObs.unsubscribe();
-            }
-            
-        });
-    }
-
-    deleteExploreEvent(event, uid) {
-        let userObs = this.afd.object(`/users/${uid}`).valueChanges().subscribe((user)=>{
-            if (user['posts'].length != 0) {
-                let tmpPosts = user['posts'].splice(0);
-                tmpPosts = tmpPosts.filter((post) => {return post != event.start});
-                this.afd.object(`/explore/${event.start}`).remove();
                 this.afd.object(`/users/${uid}`).update({posts: tmpPosts});
                 userObs.unsubscribe();
             }
@@ -172,11 +132,11 @@ export class FirebaseService {
 
     }
 
-    postExploreComment(comment, eventId) {
-        this.afd.list(`/exploreComments/${eventId}`).push(comment);
+    postComment(comment, eventId) {
+        this.afd.list(`/comments/${eventId}`).push(comment);
     }
 
-    getExploreComments(eventId) {
-        return this.afd.list(`/exploreComments/${eventId}`);
+    getComments(eventId) {
+        return this.afd.list(`/comments/${eventId}`);
     }
 }
