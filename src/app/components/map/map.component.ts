@@ -30,8 +30,6 @@ export class MapComponent implements OnInit, OnChanges {
     ngOnInit() {
         this.lat = 30.4515;
         this.lng = -91.1871;
-
-        console.log(this.mapStyles);
     }
 
     mapClicked(event) {

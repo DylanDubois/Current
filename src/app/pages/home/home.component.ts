@@ -43,7 +43,6 @@ export class HomeComponent implements OnInit {
 
   constructor(private fbd: FirebaseService, public auth: AuthService, private cookieService : CookieService) {
     this.mobileDevice = screen.width <= 700;
-    console.log(this.mobileDevice);
   }
 
   ngOnInit() {

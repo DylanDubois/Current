@@ -16,20 +16,17 @@ export class AuthService {
 
   }
 
+  // retrieves current state of user authorization
   getAuthState() {
     return this.af.authState;
   }
 
-
-
-  updateDisplayName(name : string) {
-    this.af.auth.currentUser.updateProfile({displayName : name, photoURL: this.af.auth.currentUser.photoURL});
+  updateDisplayName(name: string) {
+    this.af.auth.currentUser.updateProfile({ displayName: name, photoURL: this.af.auth.currentUser.photoURL });
   }
 
-  loginEmail(email: string, password: string) {
 
-  }
-
+  // redirects user to Google OAuth page
   signInWithGoogle() {
     return this.af.auth.signInWithPopup(
       new firebase.auth.GoogleAuthProvider()
@@ -38,7 +35,7 @@ export class AuthService {
 
   logout(path) {
     this.af.auth.signOut()
-    .then((res) => this.router.navigate([path]));
+      .then((res) => this.router.navigate([path]));
   }
 }
 
