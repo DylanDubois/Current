@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase } from 'angularfire2/database';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 
@@ -11,7 +10,6 @@ export class AuthService {
 
 
   constructor(private af: AngularFireAuth,
-    private db: AngularFireDatabase,
     private router: Router) {
 
   }
@@ -33,6 +31,7 @@ export class AuthService {
     ).catch((err) => console.log(err))
   }
 
+  // removes application authorization
   logout(path) {
     this.af.auth.signOut()
       .then((res) => this.router.navigate([path]));
