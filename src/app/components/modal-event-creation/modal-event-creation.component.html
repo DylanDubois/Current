@@ -1,5 +1,5 @@
 <div class="event-creation-modal">
-  <div class="modal-body">
+  <div id="modal" class="modal-body">
     <div class="modal-header">
       <h1>Post Event</h1>
       <a (click)="onClose()">
@@ -14,18 +14,24 @@
           <input type="text" required [(ngModel)]="newEvent.name" name="name" maxlength="25" placeholder="25 characters or less">
         </div>
         <div class="form-group">
+          <div class="event-type">
             <label for="type">Event Type</label>
             <br>
             <select [(ngModel)]="newEvent.type" name="type">
-                <option *ngFor="let type of eventTypes" [ngValue]="type">{{ type }}</option>
-              </select>
+              <option *ngFor="let type of eventTypes" [ngValue]="type">{{ type }}</option>
+            </select>
+          </div>
+          <div *ngIf="newEvent.type == 'Conditional'" class="event-goal">
+              <label for="goal">Goal</label>
               <br>
-            <label for="description">Description</label>
-            <br>
-            <textarea rows="5" required [(ngModel)]="newEvent.description" name="description" maxlength="500" placeholder="500 characters or less"></textarea>
+              <input type="number" required [(ngModel)]="newEvent.goal" name="goal" min="0" max="10000" placeholder="Goal">
+          </div>
+          <br *ngIf="newEvent.type != 'Conditional'">
+          <label for="description">Description</label>
+          <textarea rows="5" required [(ngModel)]="newEvent.description" name="description" maxlength="500" placeholder="500 characters or less"></textarea>
         </div>
       </form>
-      <app-map (chosenLocation)="mapClicked($event)" [markers]="[newEvent]"></app-map>
+      <app-map (selectedLocation)="mapClicked($event)" [markers]="[newEvent]"></app-map>
     </div>
 
     <button type="submit" class="post-btn" (click)="postEvent()">Post</button>

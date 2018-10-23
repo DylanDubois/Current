@@ -1,4 +1,22 @@
-<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" (mapClick)="mapClicked($event)">
-    <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng">
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" (mapClick)="mapClicked($event)" [styles]="mapStyles">
+    <agm-marker *ngFor="let marker of markers" 
+    [latitude]="marker.lat" 
+    [longitude]="marker.lng" 
+    (markerClick)="markerClicked(marker)"
+    [iconUrl]="markerIcon">
+        <agm-snazzy-info-window *ngIf="marker['eventLikers'].length >= 3" 
+            [maxWidth]="200" 
+            [isOpen]="true"
+            [openOnMarkerClick]="false"
+            [closeOnMapClick]="false"
+            [pointer]="false"
+            [panOnOpen]="false">
+            <ng-template>
+                <i class="material-icons">
+                    whatshot
+                </i>
+                <h1>{{marker.name}}</h1>
+            </ng-template>
+        </agm-snazzy-info-window>
     </agm-marker>
 </agm-map>

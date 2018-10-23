@@ -10,31 +10,84 @@
     justify-content: center;
     background: $primary-light;
     box-shadow: 0 3px 15px rgba(0,0,0,0.4);
-
+    border-bottom: 2px solid white;
+    padding: .5em;
     h1 {
         font-size: 2em;
+        font-weight: 100;
+    }
+}
+
+.search {
+    height: 40px;
+
+    input {
+        font-size: 1em;
         padding: .5em;
-        display: inline;
+        float: left;
+        color: $primary-light;
+        font-family: $secondary-font;
+        display: grid;
+        grid-column: 1/6;
     }
 
-    i {
-        display: inline;
-        font-size: 2em;
-        margin-top: 4px;
-        cursor: pointer;
-    }
+}
+
+.selected-filter {
+    color: $primary-light;
+    background: white;
+    border-radius: 20px;
 }
 
 .events-list {
     overflow: scroll;
-    max-height: 430px;
+    max-height: 88.5%;
 
     .list-item {
         padding: .5em 1em;
         border-bottom: 2px solid $primary;
+        transition: $button-transition;
         h2 {
             color: $primary;
             font-family: $secondary-font;
+        }
+
+        p {
+            color: $primary-dark;
+            font-family: $secondary-font;
+            font-size: .75em;
+        }
+
+        .progress-background{
+            grid-column: 1/7;
+            background: lightgray;
+        }
+
+        .progress-blue {
+            background: $primary-light;
+        }
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .list-item {
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+        h2 {
+            grid-column: 1/4;
+        }
+
+        p {
+            grid-column: 1/4;
+        }
+
+        .progress-background{
+            width: 100%;
+            background: lightgray;
+        }
+
+        .progress-blue {
+            background: $primary-light;
         }
     }
 
@@ -43,8 +96,27 @@
         transform: scaleY(1.1);
         cursor: pointer;
         h2 {
-            color: white;
+            color: white!important;
             overflow: hidden;
         }
+
+        p {
+            color: white!important;
+        }
+
+        .progress-background{
+            width: 100%;
+            background: lightgray;
+            grid-column: 4/6;
+        }
+
+        .progress-blue {
+            background: $primary-light;
+        }
+    }
+
+    .events-list {
+        max-height: 82vh!important;
+        overflow: scroll;
     }
 }

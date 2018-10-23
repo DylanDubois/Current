@@ -34,11 +34,17 @@
     margin: 1em;
     font-size: 1.5em;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+    transition: $button-transition;
 }
 
 @media only screen and (min-width: 700px) {
 
     .modal-body {
         box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+    }
+
+    .google-signin:hover {
+        background: white;
+        color: red;
     }
 }

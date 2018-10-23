@@ -18,30 +18,85 @@ export class EventsListComponent implements OnInit {
 
   event;
 
-  displayEvent = false;
+  filteredEvents = null;
+  currentFilter: string = '';
+  searchKeys: string = "";
+
   displayEventAdd = false;
+  displayEventSearch = false;
+  time: number;
 
-  constructor(private fbd : FirebaseService) { 
 
+  constructor(private fbd: FirebaseService) {
+    this.time = Date.now();
   }
 
   ngOnInit() {
   }
 
-  addEvent(){
-    if (!this.user) return;
+  addEvent() {
+    if (!this.user){
+      alert("Sign-in to post events!");
+      return;
+    }
     this.displayEventAdd = true;
   }
 
-  onClose(event) {
-    this.displayEvent = false;
-    this.displayEventAdd = false;
+  convertStartToString(start) {
+    let diff = (this.time- start) / 3600000;
+
+    return diff > 1 ? Math.round(diff) + " hour(s) ago" : 'Less than an hour ago';
+  }
+
+  sortBy(filter) {
+    if (this.currentFilter === filter) {
+      this.currentFilter = '';
+      this.filteredEvents = null;
+    }
+    else if (filter == 'likes') {
+      this.currentFilter = filter;
+      this.filteredEvents = this.events.slice(0);
+      this.filteredEvents = this.filteredEvents.sort((a, b) => {
+        if (a['eventLikers'].length > b['eventLikers'].length) return -1;
+        if ((a['eventLikers'].length < b['eventLikers'].length)) return 1;
+        return 0;
+      });
+    }
+    else {
+      this.currentFilter = filter;
+      this.filteredEvents = this.events.slice(0);
+      this.filteredEvents = this.filteredEvents.sort((a, b) => {
+        if (a[filter] < b[filter]) return -1;
+        if (a[filter] > b[filter]) return 1;
+        return 0;
+      });
+    }
+  }
+
+  eventSearch() {
+    if (this.displayEventSearch) {
+      this.displayEventSearch = false;
+      this.searchKeys = "";
+    }
+    else {
+      this.displayEventSearch = true;
+      this.sortBy(this.currentFilter);
+    }
+  }
+
+  filterChange(event){
+    this.filteredEvents = this.events.slice(0);
+    this.filteredEvents = this.filteredEvents.filter((event) => {
+      return event['name'].toLowerCase().includes(this.searchKeys.toLowerCase()) || event['description'].toLowerCase().includes(this.searchKeys.toLowerCase());
+    });
   }
 
   onEventSelect(event) {
-    this.event = event;
     this.selectedEvent.emit(event);
-    this.displayEvent = true;
+  }
+
+  onClose(message:boolean):void {
+    this.displayEventAdd = false;
   }
 
 }
