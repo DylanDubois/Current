@@ -4,6 +4,7 @@
     margin: 0;
 }
 
+
 .list-header {
     text-align: center;
     align-content: center;
@@ -12,11 +13,27 @@
     box-shadow: 0 3px 15px rgba(0,0,0,0.4);
     border-bottom: 2px solid white;
     padding: .5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+    grid-gap: .5em;
+    z-index: 10;
     h1 {
         font-size: 2em;
-        font-weight: 100;
+        display: inline;
+        display: grid;
+        grid-column: 3/5;
     }
+
+    i {
+        font-size: 1.75em;
+        margin-top: 4px;
+        cursor: pointer;
+        padding: 4px;
+        display: grid;
+    }
+
 }
+
 
 .search {
     height: 40px;
@@ -33,6 +50,7 @@
 
 }
 
+
 .selected-filter {
     color: $primary-light;
     background: white;
@@ -41,8 +59,7 @@
 
 .events-list {
     overflow: scroll;
-    max-height: 88.5%;
-
+    max-height: 430px;
     .list-item {
         padding: .5em 1em;
         border-bottom: 2px solid $primary;
@@ -55,11 +72,12 @@
         p {
             color: $primary-dark;
             font-family: $secondary-font;
-            font-size: .75em;
+            font-size: 1em;
+            display: inline;
         }
 
         .progress-background{
-            grid-column: 1/7;
+            width: 100%;
             background: lightgray;
         }
 
@@ -84,6 +102,7 @@
         .progress-background{
             width: 100%;
             background: lightgray;
+            grid-column: 4/6;
         }
 
         .progress-blue {
@@ -104,19 +123,8 @@
             color: white!important;
         }
 
-        .progress-background{
-            width: 100%;
+        .progress-background {
             background: white!important;
-            grid-column: 4/6;
         }
-
-        .progress-blue {
-            background: $primary-light;
-        }
-    }
-
-    .events-list {
-        max-height: 82vh!important;
-        overflow: scroll;
     }
 }

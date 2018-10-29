@@ -63,6 +63,10 @@
         top: 5px;
         font-family: $secondary-font;
         text-transform: capitalize;
+        
+        option {
+            color: $primary-light;
+        }
     }
 
     .selected-filter {

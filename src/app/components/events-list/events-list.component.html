@@ -1,18 +1,9 @@
-<div class="list-header" *ngIf="!displayEventSearch">
+<div class="list-header">
   <h1>Events</h1>
 </div>
 
-<!-- if search is active -->
-<div class="list-header search" *ngIf="displayEventSearch">
-        <input type="text" [(ngModel)]="searchKeys" maxlength="25" placeholder="Search" (input)="filterChange($event)">
-    <i *ngIf="header == 'Events'" class="material-icons" style="grid-column: 6/7" (click)="eventSearch()">
-        search
-    </i>
-</div>
-
-
 <div class="events-list">
-  <div class="list-item" *ngFor="let event of filteredEvents ? filteredEvents : events" (click)="onEventSelect(event)">
+  <div class="list-item" *ngFor="let event of events" (click)="onEventSelect(event)">
       <h2>{{event.name}}</h2>
       <p>{{ convertStartToString(event.start)}} - {{ event.type }} - {{event['eventLikers'].length}} {{event['eventLikers'].length == 1 ? 'like' : 'likes'}}</p>
       <div *ngIf="event['type'] == 'Conditional'" class="progress-background">

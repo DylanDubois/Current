@@ -7,17 +7,24 @@ import { FirebaseService } from '../../providers/firebase.service';
   styleUrls: ['./modal-explore-details.component.scss']
 })
 export class ModalExploreDetailsComponent implements OnInit {
+
+  // emits 'close' window function; takes current user info and selected event as inputs
   @Output() close: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input() event: any;
   @Input() user;
 
+  // determines whether the user can like an event they don't own or delete their own event
   userCanDelete: boolean = false;
   userCanLike: boolean;
+
+  // tracks the time of opening the modal
   time;
 
+  // subscribes to the Firebase Comments node for the selected event and stores them in an array
   commentsObservable;
   comments = [];
 
+  // temporary object for a new user comment
   newComment = {
     text: '',
     publisher: {},
@@ -28,9 +35,10 @@ export class ModalExploreDetailsComponent implements OnInit {
     this.time = Date.now();
    }
 
+   // scrolls to window when opened; subscribes to Firebase to fetch comments; determines whether 
+   // user can like or delete the event
   ngOnInit() {
     document.getElementById("modal").scrollIntoView(false);
-
     this.commentsObservable = this.fbd.getComments(this.event.start).valueChanges().subscribe((comments) => {
         this.comments = comments;
         this.comments.reverse();
@@ -39,20 +47,23 @@ export class ModalExploreDetailsComponent implements OnInit {
     this.userCanLike = this.user && this.event['eventLikers'].includes(this.user.uid) ? false : true;
   }
 
+  // converts event time posted from milliseconds to a readable string
   convertStartToString(start) {
     let diff = (this.time- start) / 3600000;
-
     return diff > 1 ? Math.round(diff) + " hour(s) ago" : 'less than an hour ago';
   }
 
+  // emits 'close' function when selected
   onClose() {
     this.close.emit(false);
   }
 
+  // unsubscribes from Firebase to prevent memory leak
   ngOnDestroy(){
     this.commentsObservable.unsubscribe();
   }
 
+  // if the user owns this event, this function will remove it and its comments from Firebase
   deleteEvent() {
     if (confirm("Are you sure you want to delete this event?")){
       console.log(this.user);
@@ -61,6 +72,7 @@ export class ModalExploreDetailsComponent implements OnInit {
     }
   }
 
+  // adds user to event's list of 'event-likers'
   likeEvent() {
     if (this.userCanLike){
       this.fbd.likeEvent(this.event, this.user.uid );
@@ -72,6 +84,7 @@ export class ModalExploreDetailsComponent implements OnInit {
     }
   }
 
+  // adds new comment to Comments node for selected event
   postComment() {
     if (!this.newComment.text) return;
     if (!this.user){
@@ -88,6 +101,7 @@ export class ModalExploreDetailsComponent implements OnInit {
       postTime: 1};
   }
 
+  // when selected, the window scrolls the comment box into view
   scrollToComments(element){
     element.scrollIntoView(false);
   }

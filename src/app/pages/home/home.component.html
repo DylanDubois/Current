@@ -113,7 +113,7 @@
   </section>
 
   <section class="list-container">
-    <app-events-list [events]="filteredEvents ? filteredEvents : allEvents" header="Top Events" [user]="user" (selectedEvent)="eventSelected($event)">
+    <app-events-list [events]="filteredEvents ? filteredEvents : allEvents" header="Top Events" (selectedEvent)="eventSelected($event)">
     </app-events-list>
   </section>
 

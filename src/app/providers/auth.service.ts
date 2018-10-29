@@ -19,6 +19,7 @@ export class AuthService {
     return this.af.authState;
   }
 
+  // changes user display name throughout application (not in use)
   updateDisplayName(name: string) {
     this.af.auth.currentUser.updateProfile({ displayName: name, photoURL: this.af.auth.currentUser.photoURL });
   }

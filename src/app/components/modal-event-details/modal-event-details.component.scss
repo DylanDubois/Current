@@ -1,0 +1,109 @@
+@import '../..//../styles.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: $main-font;
+}
+
+.modal-header {
+    background: $primary-light;
+    text-align: center;
+    padding: .5em;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.4);
+    border-bottom: 2px solid white;
+    h1 {
+        display: inline;
+        font-weight: 100;
+        font-size: 1.75em;
+    }
+
+    a {
+        margin-top: -2px;
+        padding: 8px;
+        float: right;
+        cursor: pointer;
+    }
+
+    .delete-btn {
+        float: left;
+    }
+}
+
+.event-details {
+    .publisher-header {
+        img {
+            height: 30px;
+            border-radius: 20px;
+            border: 1px solid white;
+            position: relative;
+            top: -4px;
+        }
+
+        h1 {
+            display: inline;
+            margin-left: .5em;
+            position: relative;
+            top: -8px;
+            font-weight: 100;
+        }
+    }
+
+    padding: 1em;
+    background: $primary-light;
+    margin: 1em;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.4);
+    h2 {
+        margin: .2em 0;
+        font-family: $secondary-font!important;
+    }
+
+    p{
+        font-family: $secondary-font!important;
+        max-height: 100px;
+        overflow: scroll;
+        padding: .2em;
+        border: 1px solid white;
+        font-size: 1.2em;
+        min-height: 70px;
+    }
+}
+
+.like-btn{
+    background: $primary-light;
+    padding: .5em 1.5em;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    position: absolute;
+    font-size: 1.7em;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.4);
+    
+    i {
+        width: 20px;
+    }
+ }
+
+.liked-event {
+    background: white;
+    i{
+        color: $primary-light;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+
+    .modal-body {
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+    }
+
+    .like-btn:hover{
+        background: white;
+        i{
+            color: $primary-light;
+        }
+    }
+}

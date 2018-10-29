@@ -10,12 +10,13 @@
             [openOnMarkerClick]="false"
             [closeOnMapClick]="false"
             [pointer]="false"
-            [panOnOpen]="false">
+            [panOnOpen]="false"
+            [showCloseButton]="false">
             <ng-template>
                 <i class="material-icons">
                     whatshot
                 </i>
-                <h1>{{marker.name}}</h1>
+                <h1 (click)="markerClicked(marker)">{{marker.name}}</h1>
             </ng-template>
         </agm-snazzy-info-window>
     </agm-marker>

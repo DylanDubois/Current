@@ -11,7 +11,6 @@ import { EventsListComponent } from './components/events-list/events-list.compon
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { ModalSigninComponent } from './components/modal-signin/modal-signin.component';
@@ -21,6 +20,7 @@ import { ModalExploreDetailsComponent } from './components/modal-explore-details
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { CookieService } from 'ngx-cookie-service';
 
+// configuration properties for Firebase connection
 export const firebaseConfig = {
   production: true,
   firebase: {
@@ -45,7 +45,6 @@ const appRoutes: Routes = [
     HomeComponent,
     MapComponent,
     EventsListComponent,
-    NavBarComponent,
     ModalSigninComponent,
     ModalEventCreationComponent,
     ModalExploreDetailsComponent
