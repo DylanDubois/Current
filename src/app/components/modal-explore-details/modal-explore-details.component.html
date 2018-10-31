@@ -1,9 +1,14 @@
 <div class="event-details-modal">
   <div id="modal" class="modal-body">
     <div class="modal-header">
-      <a *ngIf="userCanDelete" (click)="deleteEvent()" class="delete-btn">
+      <a *ngIf="userCanDelete; else likeButton" (click)="deleteEvent()" class="delete-btn">
         <i class="material-icons">delete</i>
       </a>
+      <ng-template #likeButton>
+        <a class="delete-btn" (click)="likeEvent()" [ngClass]="!userCanLike ? 'liked-event' : ''">
+          <i class="material-icons">thumb_up_alt</i>
+        </a>
+      </ng-template>
       <h1>{{ event.name }}</h1>
       <a (click)="onClose()">
         <i class="material-icons">close</i>
@@ -24,12 +29,6 @@
         </div>
         <h2>Description:</h2>
         <p>{{ event.description }}</p>
-
-        <button class="like-btn" [ngClass]="!userCanLike ? 'liked-event' : ''" (click)="likeEvent()">
-          <i class="material-icons">
-            thumb_up_alt
-          </i>
-        </button>
       </div>
       <div class="explore-comments">
           <div class="modal-header">

@@ -20,14 +20,19 @@
     }
 
     a {
-        margin-top: -2px;
+        margin-top: -4px;
         padding: 8px;
         float: right;
         cursor: pointer;
+        width: 44px;
     }
 
     .delete-btn {
         float: left;
+
+        i {
+            width: 24px;
+        }
     }
 }
 
@@ -181,8 +186,10 @@
 
 .liked-event {
     background: white;
+    border-radius: 20px;
     i{
         color: $primary-light;
+        width: 24px;
     }
 }
 
@@ -228,6 +235,11 @@
         .explore-comments {
             grid-column: 3/5;
             margin-left: 0;
+
+            .comments-list {
+                min-height: 67%;
+                max-height: 67%;
+            }
         }
     }
 }
