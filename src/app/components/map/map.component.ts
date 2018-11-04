@@ -44,7 +44,6 @@ export class MapComponent implements OnInit, OnChanges {
 
     // emits marker selected by user
     markerClicked(marker) {
-        console.log(marker);
         this.selectedEvent.emit(marker);
     }
 

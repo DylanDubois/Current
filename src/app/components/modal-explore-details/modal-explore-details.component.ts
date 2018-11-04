@@ -66,7 +66,6 @@ export class ModalExploreDetailsComponent implements OnInit {
   // if the user owns this event, this function will remove it and its comments from Firebase
   deleteEvent() {
     if (confirm("Are you sure you want to delete this event?")){
-      console.log(this.user);
       this.fbd.deleteEvent(this.event, this.user.uid);
       this.onClose();
     }

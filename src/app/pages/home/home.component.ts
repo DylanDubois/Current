@@ -87,7 +87,6 @@ export class HomeComponent implements OnInit {
 
   // prevents data leaks when application is closed
   ngOnDestroy() {
-    console.log("home destroyed gg rekt");
     this.authState.unsubscribe();
     this.fbObservable.unsubscribe();
   }

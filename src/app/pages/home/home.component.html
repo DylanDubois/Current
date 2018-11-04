@@ -63,7 +63,7 @@
       <nav class="nav-bar mobile">
           <div class="nav-search" *ngIf="displayEventSearch">
             <input type="text" [(ngModel)]="searchKeys" maxlength="25" placeholder="Search" (keydown)="searchKeyPress($event)">
-            <i class="material-icons" (click)="displayEventSearch = !displayEventSearch">
+            <i class="material-icons" (click)="displayEventSearch = !displayEventSearch; searchKeys = ''; eventSearch()">
                 close
               </i>
           </div>

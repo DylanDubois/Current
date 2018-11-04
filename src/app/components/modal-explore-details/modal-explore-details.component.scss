@@ -25,6 +25,7 @@
         float: right;
         cursor: pointer;
         width: 44px;
+        padding-left: 0;
     }
 
     .delete-btn {
@@ -187,6 +188,8 @@
 .liked-event {
     background: white;
     border-radius: 20px;
+    padding: 2px!important;
+    margin-top: 2px!important;
     i{
         color: $primary-light;
         width: 24px;
