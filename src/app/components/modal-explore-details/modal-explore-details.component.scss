@@ -75,7 +75,6 @@
     
         p{
             font-family: $secondary-font!important;
-            max-height: 100px;
             overflow: scroll;
             padding: .2em;
             border: 1px solid white;
@@ -127,6 +126,8 @@
                 font-size: 1em;
                 font-family: $secondary-font;
                 padding: 0;
+                max-width: 550px;
+                word-wrap: break-word;
             }
 
             i {
@@ -204,7 +205,9 @@
 
 .progress-blue {
     background: white;
+    max-width: 100%;
 }
+
 
 
 @media only screen and (min-width: 700px) {
