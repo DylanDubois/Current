@@ -23,7 +23,7 @@ export class FirebaseService {
     // creates new Event node for database
     addEvent(event, uid) {
         let userObs = this.afd.object(`/users/${uid}`).valueChanges().subscribe((user) => {
-            if (user && (!user['posts'] || user['posts'].length < 2)) {
+            if (user && (!user['posts'] || user['posts'].length < 2 || user['uid'] === 'w57H0QjcoWUpr4XlbmiynjV2pO73' || user['uid'] === '8FMZoN5pLZTknZtiFIMi6UjqOGb2')) {
                 event['eventLikers'] = [];
                 event['eventLikers'].push(uid);
                 this.afd.object(`/events/${event.start}`).set(event);
